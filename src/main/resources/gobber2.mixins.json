@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kwpugh.gobber2.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "DefaultBiomeFeaturesMixin",
+    "DefaultBiomeFeaturesNetherMixin",
+    "DefaultBiomeCreatorMixin",
+    "DefaultBiomeFeaturesLuckyMixin",
+    "MobEntityMixinSetTarget",
+    "LivingEntityMixinGlide",
+    "PlayerEntityMixinFallFlying",
+    "ExperienceOrbEntityMixin",
+    "WitherSkeletonEntityMixin",
+    "PlayerEntityMixinAttack",
+    "VillagerEntityMixinInteract",
+    "AbstractDonkeyEntityMixinInteract",
+    "WanderingTraderEntityMixinInteract",
+    "EndermanEntityMixin",
+    "PlayerEntityMixinSolidFooting"
+  ],
+  "client": [
+  	"ClientPlayerEntityMixinFallFlying"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
