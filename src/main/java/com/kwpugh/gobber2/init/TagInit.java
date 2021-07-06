@@ -33,9 +33,9 @@ public class TagInit
 	public static final Tag<Block> RING_MINER_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "ring_miner_additions"));
 	
 	// Gobber tags for adding additional blocks to hammer, excavator, and paxel breaking
-	public static final Tag<Block> HAMMER_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "hammer_additions"));
-	public static final Tag<Block> EXCAVATOR_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "excavator_additions"));
-	public static final Tag<Block> PAXEL_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "paxel_additions"));
+//	public static final Tag<Block> HAMMER_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "hammer_additions"));
+//	public static final Tag<Block> EXCAVATOR_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "excavator_additions"));
+//	public static final Tag<Block> PAXEL_ADDITIONS = TagRegistry.block(new Identifier("gobber2", "paxel_additions"));
 	
 	// Gobber tag for adding items to Ring of Repair blacklist
 	public static final Tag<Item> RING_REPAIR_BLACKLIST = TagRegistry.item(new Identifier("gobber2", "ring_repair_blacklist"));
