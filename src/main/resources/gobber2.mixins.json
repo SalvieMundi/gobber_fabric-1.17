@@ -18,7 +18,8 @@
     "AbstractDonkeyEntityMixinInteract",
     "WanderingTraderEntityMixinInteract",
     "EndermanEntityMixin",
-    "PlayerEntityMixinSolidFooting"
+    "PlayerEntityMixinSolidFooting",
+    "PlayerEntityMixinArmor"
   ],
   "client": [
   	"ClientPlayerEntityMixinFallFlying"

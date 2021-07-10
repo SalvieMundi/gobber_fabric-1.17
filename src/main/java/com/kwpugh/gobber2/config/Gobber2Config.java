@@ -147,7 +147,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public double ringDismissalRange = 8;
  		public double ringDismissalVelocity = 0.2D;
  		public double ringDismissalLift = 1.5D;
- 		public double ringTravelerLaunch = 3.0;
+ 		public double ringTravelerLaunch = 4.0;
  		public double ringTravelerCruising = 0.2;
  		
  		 @Comment("\n"
@@ -280,8 +280,24 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
        	public int gobberEndDurabilityMultiplier = 100;
       	public int gobberEndArmorEnchantability = 30;
       	public float gobberEndToughness = 3.0F;
-      	public float gobberEndKnockbackResistance = 0.30F;  
-       	
+      	public float gobberEndKnockbackResistance = 0.30F;
+
+		@Comment("\n"
+				+"\n"
+				+"\n"
+				+"******************************"
+				+"\nDragon Armor Material Stats"
+				+"\n******************************")
+		public boolean enableFlight = true;
+		public boolean enableHealingPerks = true;
+		public boolean enableProtectiveEffects = true;
+		public boolean enableNoFallDamage = true;
+		public boolean unbreakableDragonArmor = true;
+		public int gobberDragonDurabilityMultiplier = 100;
+		public int gobberDragonArmorEnchantability = 30;
+		public float gobberDragonToughness = 3.0F;
+		public float gobberDragonKnockbackResistance = 1.0F;
+		public int gobberDragonArmorHealingPoints = 4;
        	
 		@Comment("\n"
 				+"\n"

@@ -40,47 +40,47 @@ public class RingCuring extends Item
 
 		if (!world.isClient)
 		{
-			if(player.hasStatusEffect(StatusEffects.BLINDNESS) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.BLINDNESS) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.BLINDNESS);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.HUNGER) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.HUNGER) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.HUNGER);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.MINING_FATIGUE) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.MINING_FATIGUE) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.NAUSEA) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.NAUSEA) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.NAUSEA);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.POISON) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.POISON) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.POISON);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.SLOWNESS) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.SLOWNESS) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.SLOWNESS);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.UNLUCK) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.UNLUCK) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.UNLUCK);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.WEAKNESS) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.WEAKNESS) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.WEAKNESS);
 			}
 			
-			if(player.hasStatusEffect(StatusEffects.WITHER) && player.isSneaking());
+			if(player.hasStatusEffect(StatusEffects.WITHER) && player.isSneaking())
 			{
 				player.removeStatusEffect(StatusEffects.WITHER);
 			}

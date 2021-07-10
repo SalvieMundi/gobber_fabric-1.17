@@ -26,7 +26,58 @@ public class PlayerSpecialAbilities
 		
     	return;
 	}
-		
+
+	// Checks if player has negative effects and removes them, used on Dragon Armor
+	public static void giveCuringEffect(World world, PlayerEntity player)
+	{
+		if (!world.isClient)
+		{
+			if(player.hasStatusEffect(StatusEffects.BLINDNESS))
+			{
+				player.removeStatusEffect(StatusEffects.BLINDNESS);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.HUNGER))
+			{
+				player.removeStatusEffect(StatusEffects.HUNGER);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.MINING_FATIGUE))
+			{
+				player.removeStatusEffect(StatusEffects.MINING_FATIGUE);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.NAUSEA))
+			{
+				player.removeStatusEffect(StatusEffects.NAUSEA);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.POISON))
+			{
+				player.removeStatusEffect(StatusEffects.POISON);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.SLOWNESS))
+			{
+				player.removeStatusEffect(StatusEffects.SLOWNESS);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.UNLUCK))
+			{
+				player.removeStatusEffect(StatusEffects.UNLUCK);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.WEAKNESS))
+			{
+				player.removeStatusEffect(StatusEffects.WEAKNESS);
+			}
+
+			if(player.hasStatusEffect(StatusEffects.WITHER))
+			{
+				player.removeStatusEffect(StatusEffects.WITHER);
+			}
+		}
+	}
 	//Set player saturation level to max on tick update
 	public static void giveSaturationEffect(World world, PlayerEntity player, ItemStack itemstack)
 	{

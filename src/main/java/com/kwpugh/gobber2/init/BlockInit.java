@@ -48,12 +48,7 @@ public class BlockInit
 			Registry.register(Registry.BLOCK, new Identifier(Gobber2.MOD_ID, "clear_glass"), CLEAR_GLASS);
 		}
 	}
-	
-	private static Material FabricBlockSettings(Material stone)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	public static void registerBlockItems()
 	{

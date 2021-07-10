@@ -47,8 +47,28 @@ public final class PlayerEquipUtil
     	}
     	
     	return false;
-    } 
-    
+    }
+
+	// Wearing full Dragon Armor
+	public static boolean isPlayerWearingDragonArmor(PlayerEntity player)
+	{
+		ItemStack head = player.getEquippedStack(EquipmentSlot.HEAD);
+		ItemStack chest = player.getEquippedStack(EquipmentSlot.CHEST);
+		ItemStack legs = player.getEquippedStack(EquipmentSlot.LEGS);
+		ItemStack feet = player.getEquippedStack(EquipmentSlot.FEET);
+
+		//Full Set
+		if(		(head.getItem() == ItemInit.GOBBER2_HELMET_DRAGON &&
+				chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON &&
+				legs.getItem() == ItemInit.GOBBER2_LEGGINGS_DRAGON &&
+				feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON)     )
+		{
+			return true;
+		}
+
+		return false;
+	}
+
 	//Holding the Ring of Stealth
     public static boolean isPlayerGotStealth(PlayerEntity player)
     {

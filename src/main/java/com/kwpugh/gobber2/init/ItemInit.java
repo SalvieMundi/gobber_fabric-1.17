@@ -1,6 +1,7 @@
 package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.items.armor.DragonArmor;
 import com.kwpugh.gobber2.items.armor.EndArmor;
 import com.kwpugh.gobber2.items.armor.GobberArmor;
 import com.kwpugh.gobber2.items.armor.NetherArmor;
@@ -40,13 +41,7 @@ import com.kwpugh.gobber2.items.staffs.*;
 import com.kwpugh.gobber2.items.tools.areatools.*;
 import com.kwpugh.gobber2.items.tools.basetools.*;
 import com.kwpugh.gobber2.items.tools.endtools.*;
-import com.kwpugh.gobber2.lists.FoodList;
-import com.kwpugh.gobber2.lists.GobberArmorMaterial;
-import com.kwpugh.gobber2.lists.EndArmorMaterial;
-import com.kwpugh.gobber2.lists.EndToolMaterial;
-import com.kwpugh.gobber2.lists.NetherArmorMaterial;
-import com.kwpugh.gobber2.lists.NetherToolMaterial;
-import com.kwpugh.gobber2.lists.GobberToolMaterial;
+import com.kwpugh.gobber2.lists.*;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
@@ -111,6 +106,8 @@ public class ItemInit
 	public static final ArmorMaterial GOBBER_ARMOR_MATERIAL = new GobberArmorMaterial();
 	public static final ArmorMaterial GOBBER_NETHER_ARMOR_MATERIAL = new NetherArmorMaterial();
 	public static final ArmorMaterial GOBBER_END_ARMOR_MATERIAL = new EndArmorMaterial();
+	public static final ArmorMaterial GOBBER_DRAGON_ARMOR_MATERIAL = new DragonArmorMaterial();
+
 	public static final ToolMaterial GOBBER_TOOL_MATERIAL = new GobberToolMaterial();
 	public static final ToolMaterial GOBBER_NETHER_TOOL_MATERIAL = new NetherToolMaterial();
 	public static final ToolMaterial GOBBER_END_TOOL_MATERIAL = new EndToolMaterial();
@@ -212,7 +209,14 @@ public class ItemInit
 	public static final Item GOBBER2_CHESTPLATE_END = new EndArmor(GOBBER_END_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_LEGGINGS_END = new EndArmor(GOBBER_END_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_BOOTS_END = new EndArmor(GOBBER_END_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
-	
+
+	public static final Item DRAGON_ELYTRA = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item DRAGON_STAR = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_HELMET_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_CHESTPLATE_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_LEGGINGS_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_BOOTS_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+
 	public static final Item GOBBER2_RING_ATTRACTION = new RingAttraction((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_RETURN = new RingReturn((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_SWIFTNESS = new RingSwiftness((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
@@ -368,6 +372,13 @@ public class ItemInit
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_chestplate_end"), GOBBER2_CHESTPLATE_END);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_leggings_end"), GOBBER2_LEGGINGS_END);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_boots_end"), GOBBER2_BOOTS_END);
+
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "dragon_elytra"), DRAGON_ELYTRA);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "dragon_star"), DRAGON_STAR);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_helmet_dragon"), GOBBER2_HELMET_DRAGON);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_chestplate_dragon"), GOBBER2_CHESTPLATE_DRAGON);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_leggings_dragon"), GOBBER2_LEGGINGS_DRAGON);
+		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_boots_dragon"), GOBBER2_BOOTS_DRAGON);
 
 		if(enableRingAttraction)
 		{

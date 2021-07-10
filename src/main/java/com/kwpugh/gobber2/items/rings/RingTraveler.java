@@ -55,7 +55,7 @@ public class RingTraveler extends Item
 		//Get some vertical height to start
 		if(player.isOnGround())	
 		{
-			player.addVelocity(lookX * 0.0, lookY * 4.0, lookZ * 0.0);
+			player.addVelocity(lookX * 0.0, lookY * launchVelocity, lookZ * 0.0);
 		}
 		
 		//Add more velocity while in air
