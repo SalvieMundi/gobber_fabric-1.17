@@ -48,8 +48,6 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
                     PlayerSpecialAbilities.giveGreaterAbsorption(world, player, stack);
                     PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
                     PlayerSpecialAbilities.giveHealing(world, player, stack, healing);
-
-                    System.out.println("Healing");
                 }
             }
 
