@@ -19,7 +19,7 @@ OreGen approach that works with CavesAndCliffsPreview.zip, but not with 1.17 Par
 ************
  */
 
-public class NewOreGen
+public class CACOreGen
 {
     public static final Gobber2Config.Ores CONFIG2 = Gobber2.CONFIG.ORES;
 

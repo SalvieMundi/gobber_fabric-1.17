@@ -10,7 +10,8 @@ import com.kwpugh.gobber2.init.LootTableInit;
 import com.kwpugh.gobber2.init.TagInit;
 import com.kwpugh.gobber2.world.ModConfiguredFeatures;
 
-import com.kwpugh.gobber2.world.NewOreGen;
+import com.kwpugh.gobber2.world.CACOreGen;
+import com.kwpugh.gobber2.world.OreGeneration;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
@@ -35,14 +36,10 @@ public class Gobber2 implements ModInitializer
     	BlockInit.registerBlockItems();
     	BlockInit.registerBlockEntities();
     	ItemInit.registerItems();
-    	ModConfiguredFeatures.Features();
+		OreGeneration.init();
     	FuelInit.registerFuels();;
     	EnchantmentInit.registerEnchantments();
     	EffectsInit.registerEffects();
     	LootTableInit.registerLoot();
-
-    	// Used for Overworld Gobber Ore when CavesAndCliffsPreview.zip is enabled in config
-		NewOreGen.registerConfiguredFeature();
-		NewOreGen.registerBiomeModifications();
     }
 }
