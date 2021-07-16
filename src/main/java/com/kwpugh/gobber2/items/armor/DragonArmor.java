@@ -94,7 +94,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     {
         if(unbreakable)
         {
-            stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
     }
 

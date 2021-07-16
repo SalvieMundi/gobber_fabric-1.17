@@ -59,7 +59,7 @@ public class StaffEnsnarement extends Item
     {
     	if(!player.world.isClient)
     	{
-	       	 if((enableHostileUse) && (stack.getOrCreateTag().isEmpty()) &&
+	       	 if((enableHostileUse) && (stack.getOrCreateNbt().isEmpty()) &&
 	    			 (entity instanceof HostileEntity) && !(entity instanceof WitherEntity))
 	    	 {
 	       		 if(saveEntityToStack(entity, stack))
@@ -70,7 +70,7 @@ public class StaffEnsnarement extends Item
 	 			return ActionResult.SUCCESS;
 	    	 }
 
-        	 if((stack.getOrCreateTag().isEmpty()) &&
+        	 if((stack.getOrCreateNbt().isEmpty()) &&
         			 (entity instanceof AnimalEntity ||
         				entity instanceof HorseEntity ||
         				entity instanceof DonkeyEntity ||
@@ -99,13 +99,13 @@ public class StaffEnsnarement extends Item
     {
     	ItemStack stack = context.getStack();
     	if(!(context.getWorld() instanceof ServerWorld)) return ActionResult.SUCCESS;;
-    	if(!context.getWorld().isClient && stack.hasTag() && stack.getTag().contains("captured_entity"))
+    	if(!context.getWorld().isClient && stack.hasNbt() && stack.getNbt().contains("captured_entity"))
     	{
         	ServerWorld serverWorld = (ServerWorld) context.getWorld();
         	BlockPos pos = context.getBlockPos().offset(context.getSide());
         	ServerPlayerEntity player = (ServerPlayerEntity) context.getPlayer();
 
-			NbtCompound entityTag = context.getStack().getSubTag("captured_entity");   // KEEP
+			NbtCompound entityTag = context.getStack().getSubNbt("captured_entity");   // KEEP
 
           	Optional<Entity> entity = EntityType.getEntityFromNbt(entityTag, serverWorld);
 
@@ -116,8 +116,8 @@ public class StaffEnsnarement extends Item
         		serverWorld.spawnEntity(entity2);
         	}
 
-        	stack.removeSubTag("name");  //KEEP
-        	stack.removeSubTag("captured_entity");  // KEEP
+        	stack.removeSubNbt("name");  //KEEP
+        	stack.removeSubNbt("captured_entity");  // KEEP
 
         	context.getPlayer().getStackInHand(context.getHand());
 
@@ -137,8 +137,8 @@ public class StaffEnsnarement extends Item
     		return false;
     	}
 
-    	stack.getOrCreateTag().put("captured_entity", entityTag);
-    	stack.getOrCreateTag().putString("name", entity.getDisplayName().getString());
+    	stack.getOrCreateNbt().put("captured_entity", entityTag);
+    	stack.getOrCreateNbt().putString("name", entity.getDisplayName().getString());
     	entity.discard();
 
     	return true;
@@ -147,7 +147,7 @@ public class StaffEnsnarement extends Item
     @Override
 	public boolean hasGlint(ItemStack stack)
 	{
-		return stack.hasTag() && !stack.getOrCreateSubTag("captured_entity").isEmpty();
+		return stack.hasNbt() && !stack.getOrCreateSubNbt("captured_entity").isEmpty();
 	}
 
     @Environment(EnvType.CLIENT)
@@ -155,9 +155,9 @@ public class StaffEnsnarement extends Item
 	{
 		tooltip.add(new TranslatableText("item.gobber2.gobber2_staff_ensnarement.tip1").formatted(Formatting.GREEN));
 
-		if (stack.hasTag() && !stack.getOrCreateSubTag("captured_entity").isEmpty())
+		if (stack.hasNbt() && !stack.getOrCreateSubNbt("captured_entity").isEmpty())
 		{
-			tooltip.add((new TranslatableText("item.gobber2.gobber2_staff_ensnarement.tip3", stack.getTag().getString("name")).formatted(Formatting.GREEN)));
+			tooltip.add((new TranslatableText("item.gobber2.gobber2_staff_ensnarement.tip3", stack.getNbt().getString("name")).formatted(Formatting.GREEN)));
 		}
 	}
 }

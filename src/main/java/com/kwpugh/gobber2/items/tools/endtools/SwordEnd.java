@@ -22,7 +22,7 @@ public class SwordEnd extends SwordItem
 	{
 		if(unbreakable)
 		{
-			stack.getOrCreateTag().putBoolean("Unbreakable", true);
+			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
 		}
 	}
 }

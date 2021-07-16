@@ -92,7 +92,7 @@ public class NewHammerEnd extends Hammer
     {
         if(unbreakable)
         {
-            stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
     }
 

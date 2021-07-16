@@ -22,7 +22,7 @@ public class PickaxeEnd extends ModPickaxe
 	{
 		if(unbreakable)
 		{
-			stack.getOrCreateTag().putBoolean("Unbreakable", true);
+			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
 		}
 	}
 }

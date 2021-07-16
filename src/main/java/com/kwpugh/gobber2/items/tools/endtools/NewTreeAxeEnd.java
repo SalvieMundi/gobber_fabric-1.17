@@ -28,7 +28,7 @@ public class NewTreeAxeEnd extends TreeAxe
     {
         if(unbreakable)
         {
-            stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
     }
 

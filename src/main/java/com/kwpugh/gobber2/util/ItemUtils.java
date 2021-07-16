@@ -14,7 +14,7 @@ public class ItemUtils
         {
             return false;
         }
-        return !matchNBT || ItemStack.areTagsEqual(a, b);
+        return !matchNBT || ItemStack.areNbtEqual(a, b);
     }
 
     public static boolean isItemEqual(ItemStack a, ItemStack b, boolean matchNBT, boolean useTags)

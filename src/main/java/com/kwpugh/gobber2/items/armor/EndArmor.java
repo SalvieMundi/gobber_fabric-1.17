@@ -69,7 +69,7 @@ public class EndArmor extends ArmorItem
 	{
 		if(unbreakable)
 		{
-			stack.getOrCreateTag().putBoolean("Unbreakable", true);
+			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
 		}
 	}
 	

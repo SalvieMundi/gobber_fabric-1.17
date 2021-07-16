@@ -283,7 +283,7 @@ public class NewPaxelEndStars extends Paxel
     {
         if(unbreakable)
         {
-            stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
     }
 

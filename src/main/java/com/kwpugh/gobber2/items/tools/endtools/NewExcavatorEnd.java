@@ -93,7 +93,7 @@ public class NewExcavatorEnd extends Excavator
     {
         if(unbreakable)
         {
-            stack.getOrCreateTag().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
     }
 

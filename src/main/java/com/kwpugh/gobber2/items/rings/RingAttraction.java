@@ -96,7 +96,7 @@ public class RingAttraction extends Item
     private void setMagnetMode(ItemStack magnet, MagnetMode mode)
     {
         checkTag(magnet);
-        magnet.getTag().putBoolean(ATTRACTION_MODE, mode.getBoolean());
+        magnet.getNbt().putBoolean(ATTRACTION_MODE, mode.getBoolean());
     }
 
     private MagnetMode getMagnetMode(ItemStack magnet)
@@ -105,7 +105,7 @@ public class RingAttraction extends Item
         {
             checkTag(magnet);
             
-            return magnet.getTag().getBoolean(ATTRACTION_MODE) ? MagnetMode.ACTIVE : MagnetMode.INACTIVE;
+            return magnet.getNbt().getBoolean(ATTRACTION_MODE) ? MagnetMode.ACTIVE : MagnetMode.INACTIVE;
         }
         return MagnetMode.INACTIVE;
     }
@@ -128,11 +128,11 @@ public class RingAttraction extends Item
     {
         if (!magnet.isEmpty())
         {
-            if (!magnet.hasTag())
+            if (!magnet.hasNbt())
             {
-                magnet.setTag(new NbtCompound());
+                magnet.setNbt(new NbtCompound());
             }
-            NbtCompound nbt = magnet.getTag();
+            NbtCompound nbt = magnet.getNbt();
             
             if (!nbt.contains(ATTRACTION_MODE))
             {

@@ -22,7 +22,7 @@ public class ShovelEnd extends ShovelItem
 	{
 		if(unbreakable)
 		{
-			stack.getOrCreateTag().putBoolean("Unbreakable", true);
+			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
 		}
 	}
 }

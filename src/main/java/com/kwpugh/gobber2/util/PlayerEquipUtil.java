@@ -99,9 +99,28 @@ public final class PlayerEquipUtil
 		}				
 	     
         return false;
-    } 
-    
-    // Ring of Phoenix in inventory - Old code
+    }
+
+	// Hero Medallion in inventory
+	public static boolean isVillageHero(PlayerEntity player)
+	{
+		PlayerInventory inv = player.getInventory();
+		int size = inv.size();
+
+		//Is the ring in the player inventory?
+		for (int slot = 0; slot < size; slot++)
+		{
+			ItemStack stack = inv.getStack(slot);
+			if (stack.getItem() == ItemInit.GOBBER2_MEDALLION_HERO)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+    // Ring of Phoenix in inventory - Old code, but save
     public static boolean isPlayerFireImmune(PlayerEntity player)
     { 	    
 		PlayerInventory inv = player.getInventory();
