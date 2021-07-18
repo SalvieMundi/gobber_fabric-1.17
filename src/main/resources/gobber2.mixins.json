@@ -17,6 +17,8 @@
     "VillagerEntityMixinInteract",
     "AbstractDonkeyEntityMixinInteract",
     "WanderingTraderEntityMixinInteract",
+    "WolfEntityMixinInteract",
+    "ParrotEntityMixinInteract",
     "EndermanEntityMixin",
     "PlayerEntityMixinSolidFooting",
     "PlayerEntityMixinArmor"

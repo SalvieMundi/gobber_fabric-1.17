@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.kwpugh.gobber2.Gobber2;
 
+import com.kwpugh.gobber2.util.EnsnarementUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
@@ -62,7 +63,7 @@ public class StaffEnsnarement extends Item
 	       	 if((enableHostileUse) && (stack.getOrCreateNbt().isEmpty()) &&
 	    			 (entity instanceof HostileEntity) && !(entity instanceof WitherEntity))
 	    	 {
-	       		 if(saveEntityToStack(entity, stack))
+	       		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
 	       		 {
 	       			 player.setStackInHand(hand, stack);
 	       		 }
@@ -70,18 +71,13 @@ public class StaffEnsnarement extends Item
 	 			return ActionResult.SUCCESS;
 	    	 }
 
-        	 if((stack.getOrCreateNbt().isEmpty()) &&
-        			 (entity instanceof AnimalEntity ||
-        				entity instanceof HorseEntity ||
-        				entity instanceof DonkeyEntity ||
-        				entity instanceof LlamaEntity ||
-        				entity instanceof MuleEntity ||
-        				entity instanceof RabbitEntity ||
-        				entity instanceof GolemEntity ||
-        				entity instanceof VillagerEntity) ||
-        				entity instanceof WanderingTraderEntity)
+			if((stack.getOrCreateNbt().isEmpty()) &&
+					(entity instanceof AnimalEntity ||
+							entity instanceof GolemEntity ||
+							entity instanceof VillagerEntity) ||
+					entity instanceof WanderingTraderEntity)
         	 {
-           		 if(saveEntityToStack(entity, stack))
+           		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
            		 {
            			 player.setStackInHand(hand, stack);
            		 }
@@ -101,47 +97,12 @@ public class StaffEnsnarement extends Item
     	if(!(context.getWorld() instanceof ServerWorld)) return ActionResult.SUCCESS;;
     	if(!context.getWorld().isClient && stack.hasNbt() && stack.getNbt().contains("captured_entity"))
     	{
-        	ServerWorld serverWorld = (ServerWorld) context.getWorld();
-        	BlockPos pos = context.getBlockPos().offset(context.getSide());
-        	ServerPlayerEntity player = (ServerPlayerEntity) context.getPlayer();
-
-			NbtCompound entityTag = context.getStack().getSubNbt("captured_entity");   // KEEP
-
-          	Optional<Entity> entity = EntityType.getEntityFromNbt(entityTag, serverWorld);
-
-        	if(entity.isPresent())
-        	{
-        		Entity entity2 = entity.get();
-        		entity2.updatePositionAndAngles(pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, player.getYaw(), player.getPitch());
-        		serverWorld.spawnEntity(entity2);
-        	}
-
-        	stack.removeSubNbt("name");  //KEEP
-        	stack.removeSubNbt("captured_entity");  // KEEP
-
-        	context.getPlayer().getStackInHand(context.getHand());
+			EnsnarementUtil.respawnEntity(context, stack);
 
         	return ActionResult.SUCCESS;
         }
 
         return ActionResult.SUCCESS;
-    }
-
-    // Method to save an entity to a tag and remove entity from world
-    public boolean saveEntityToStack(Entity entity, ItemStack stack)
-    {
-		NbtCompound entityTag = new NbtCompound();
-
-    	if(!entity.saveSelfNbt(entityTag))
-    	{
-    		return false;
-    	}
-
-    	stack.getOrCreateNbt().put("captured_entity", entityTag);
-    	stack.getOrCreateNbt().putString("name", entity.getDisplayName().getString());
-    	entity.discard();
-
-    	return true;
     }
 
     @Override
