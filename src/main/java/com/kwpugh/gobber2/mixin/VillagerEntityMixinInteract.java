@@ -31,7 +31,8 @@ public class VillagerEntityMixinInteract
 	public void gobberInteractMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir)
 	{
 		ItemStack stack = player.getStackInHand(hand);
-		if(stack.getItem() == ItemInit.GOBBER2_STAFF_ENSNAREMENT)
+		if(stack.getItem() == ItemInit.GOBBER2_STAFF_ENSNAREMENT ||
+				stack.getItem() == ItemInit.GOBBER2_STAFF_HOSTILE_ENSNAREMENT)
 		{
 			player.swingHand(hand);
 

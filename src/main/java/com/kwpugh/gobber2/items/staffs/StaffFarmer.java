@@ -35,10 +35,10 @@ public class StaffFarmer extends Item
 		super(settings);
 	}
 
-	static int range = Gobber2.CONFIG.GENERAL.ringFarmerHorizRange;
-	static int rangeVertical = Gobber2.CONFIG.GENERAL.ringMinerVerticalRange;
-	static int interval = Gobber2.CONFIG.GENERAL.ringFarmerInterval;
-	static int intervalCactus = Gobber2.CONFIG.GENERAL.ringFarmerIntervalCactus;
+	static int range = Gobber2.CONFIG.GENERAL.staffFarmerHorizRange;
+	static int rangeVertical = Gobber2.CONFIG.GENERAL.staffFarmerVertRange;
+	static int interval = Gobber2.CONFIG.GENERAL.staffFarmerInterval;
+	static int intervalCactus = Gobber2.CONFIG.GENERAL.staffFarmerIntervalCactus;
 
 	static boolean replant = Gobber2.CONFIG.GENERAL.staffFarmerReplant;
 	

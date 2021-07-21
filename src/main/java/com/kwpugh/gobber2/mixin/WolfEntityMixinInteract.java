@@ -25,7 +25,8 @@ public class WolfEntityMixinInteract
 
         if(!world.isClient)
         {
-            if(stack.getItem() == ItemInit.GOBBER2_STAFF_ENSNAREMENT)
+            if(stack.getItem() == ItemInit.GOBBER2_STAFF_ENSNAREMENT ||
+                    stack.getItem() == ItemInit.GOBBER2_STAFF_HOSTILE_ENSNAREMENT)
             {
                 player.swingHand(hand);
 

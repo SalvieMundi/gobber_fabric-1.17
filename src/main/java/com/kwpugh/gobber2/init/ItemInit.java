@@ -93,6 +93,7 @@ public class ItemInit
 	static boolean enableStaffSniper = Gobber2.CONFIG.GENERAL.enableStaffSniper;
 	static boolean enableStaffStars = Gobber2.CONFIG.GENERAL.enableStaffStars;
 	static boolean enableStaffTransformation = Gobber2.CONFIG.GENERAL.enableStaffTransformation;
+	static boolean enableStaffHostileEnsnarement = Gobber2.CONFIG.GENERAL.enableStaffHostileEnsnarement;
 
 	static boolean enableMedallionBreathing = Gobber2.CONFIG.GENERAL.enableMedallionBreathing;
 	static boolean enableMedallionHealing = Gobber2.CONFIG.GENERAL.enableMedallionLesserHealing;
@@ -256,6 +257,7 @@ public class ItemInit
 	public static final Item GOBBER2_STAFF_FARMER = new StaffFarmer((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_STAFF_STARS = new StaffStars((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_STAFF_NATURE = new StaffNature((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_STAFF_HOSTILE_ENSNAREMENT = new StaffHostileEnsnarement((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_STAFF_SNIPER = new StaffSniper((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	
 	public static final Item GOBBER2_SPECIAL_ITEM = new SpecialItem((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
@@ -553,6 +555,11 @@ public class ItemInit
 		if(enableStaffStars)
 		{
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_stars"), GOBBER2_STAFF_STARS);
+		}
+
+		if(enableStaffHostileEnsnarement)
+		{
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_staff_hostile_ensnarement"), GOBBER2_STAFF_HOSTILE_ENSNAREMENT);
 		}
 
 		if(enableStaffSniper)

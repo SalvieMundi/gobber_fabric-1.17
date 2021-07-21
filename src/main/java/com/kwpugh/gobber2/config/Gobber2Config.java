@@ -109,6 +109,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableStaffSniper = true;
 		public boolean enableStaffStars = true;
 		public boolean enableStaffTransformation = true;
+		public boolean enableStaffHostileEnsnarement = true;
 
 		@Comment("\n"
 				+"\n"
@@ -169,8 +170,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public int staffTransformationDurability = 1025;
  		public int staffClearingRange = 11;
  		public int staffSniperCooldown = 240;
- 		public int staffFarmerRange = 10;
- 		public int staffFarmerInterval = 180;
+		public int staffFarmerHorizRange = 12;
+		public int staffFarmerVertRange = 6;
+		public int staffFarmerInterval = 60;
+		public int staffFarmerIntervalCactus = 20;
  		public boolean staffFarmerReplant = true;
  		public boolean staffEnsnarementHotileMobs = false;
 		
@@ -183,7 +186,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableEndHammer5x5 = true;
 		public boolean enableEndExcavator5x5 = true;
 		public boolean enableTreeAxe = true;
-		public int treeAxeDelayTick = 3;
 		public boolean enableHammers = true;
 		public boolean enableExcavators = true;
 		public boolean enablePaxels = true;

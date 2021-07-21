@@ -314,6 +314,8 @@
 	"item.gobber2.gobber2_staff_ensnarement.tip1": "Captures and stores passive animals and villagers",
 	"item.gobber2.gobber2_staff_ensnarement.tip2": "Currently empty",
 	"item.gobber2.gobber2_staff_ensnarement.tip3": "Contents: %s",
+	"item.gobber2.gobber2_staff_hostile_ensnarement": "Staff of Hostile Ensnarement",
+	"item.gobber2.gobber2_staff_hostile_ensnarement.tip1": "Captures and stores passive/hostile mobs and villagers",
 	
 	"item.gobber2.requires_redstone": "Requires redstone signal to activate",
 
@@ -478,6 +480,7 @@
 	"advancements.gobber2.gobber2_staff_stars.title": "Light up the World",
 	"advancements.gobber2.gobber2_staff_stars.desc": "Craft a Staff of the Stars",
 	"advancements.gobber2.gobber2_staff_sniper.title": "A Most Deadly Aim",
+	"advancements.gobber2.gobber2_staff_hostile_ensnarement.title": "A (hostile) Mob in Your Pocket",
 	"advancements.gobber2.gobber2_staff_sniper.desc": "Craft a Staff of the Sniper",
 
 	"advancements.gobber2.gobber2_pickaxe_nether.title": "An Even Better Block Breaker",
