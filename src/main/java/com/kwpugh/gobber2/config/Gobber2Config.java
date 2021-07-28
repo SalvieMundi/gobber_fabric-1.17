@@ -14,15 +14,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     @Config(name = "ores")
     public static class Ores implements ConfigData 
     {
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
-				+"\nCavesAndCliffsPreview.zip OreGen"
-				+"\nONly needs to be true if"
-				+"\ndatapack is used"
-				+"\n***********************")
-		public boolean cacpEnable = false;
-
 	    @Comment("\n"
 	    		+"\n"
 	    		+ "***********************"    		

@@ -16,7 +16,7 @@ public class BlockInit
 {
 	public static final Block GOBBER2_LUCKY_BLOCK = new LuckyBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
 	
-	public static final Block GOBBER2_ORE = new OreGobber(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(2.0F, 2.0F));	
+	public static final Block GOBBER2_ORE = new OreGobber(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_ORE_NETHER = new OreNether(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool().strength(2.0F, 2.0F));
 	public static final Block GOBBER2_ORE_END = new OreEnd(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 5).requiresTool().strength(2.0F, 2.0F));
 	

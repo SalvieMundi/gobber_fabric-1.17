@@ -8,10 +8,8 @@ import com.kwpugh.gobber2.init.FuelInit;
 import com.kwpugh.gobber2.init.ItemInit;
 import com.kwpugh.gobber2.init.LootTableInit;
 import com.kwpugh.gobber2.init.TagInit;
-import com.kwpugh.gobber2.world.ModConfiguredFeatures;
 
-import com.kwpugh.gobber2.world.CACOreGen;
-import com.kwpugh.gobber2.world.OreGeneration;
+import com.kwpugh.gobber2.world.OreGen;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.PartitioningSerializer;
@@ -36,7 +34,7 @@ public class Gobber2 implements ModInitializer
     	BlockInit.registerBlockItems();
     	BlockInit.registerBlockEntities();
     	ItemInit.registerItems();
-		OreGeneration.init();
+		OreGen.Features();
     	FuelInit.registerFuels();;
     	EnchantmentInit.registerEnchantments();
     	EffectsInit.registerEffects();

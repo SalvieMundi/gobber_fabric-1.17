@@ -4,10 +4,6 @@
   "package": "com.kwpugh.gobber2.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "DefaultBiomeFeaturesMixin",
-    "DefaultBiomeFeaturesNetherMixin",
-    "DefaultBiomeCreatorMixin",
-    "DefaultBiomeFeaturesLuckyMixin",
     "MobEntityMixinSetTarget",
     "LivingEntityMixinGlide",
     "PlayerEntityMixinFallFlying",
