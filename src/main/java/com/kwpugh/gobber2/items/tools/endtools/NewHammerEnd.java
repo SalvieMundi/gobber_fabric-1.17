@@ -33,7 +33,7 @@ public class NewHammerEnd extends Hammer
     int radius = 1;
     String radiusText = "3x3";
     boolean obsidianFlag;
-    static boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndHammer5x5;
+    boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndHammer5x5;
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
 
     @Override

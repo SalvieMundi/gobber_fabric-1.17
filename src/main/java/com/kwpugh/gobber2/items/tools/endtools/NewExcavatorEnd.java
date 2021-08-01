@@ -35,7 +35,7 @@ public class NewExcavatorEnd extends Excavator
 
     int radius = 1;
     String radiusText = "3x3";
-    static boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndExcavator5x5;
+    boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndExcavator5x5;
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
 
     @Override
