@@ -14,11 +14,11 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewPaxelEnd extends Paxel
+public class PaxelEnd extends Paxel
 {
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
 
-    public NewPaxelEnd(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
+    public PaxelEnd(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

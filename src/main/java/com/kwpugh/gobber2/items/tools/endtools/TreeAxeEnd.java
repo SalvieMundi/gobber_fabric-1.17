@@ -14,11 +14,11 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewTreeAxeEnd extends TreeAxe
+public class TreeAxeEnd extends TreeAxe
 {
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
 
-    public NewTreeAxeEnd(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
+    public TreeAxeEnd(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

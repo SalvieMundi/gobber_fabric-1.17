@@ -44,7 +44,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
-public class NewPaxelEndStars extends Paxel
+public class PaxelEndStars extends Paxel
 {
     static
     {
@@ -61,7 +61,7 @@ public class NewPaxelEndStars extends Paxel
 
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
 
-    public NewPaxelEndStars(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
+    public PaxelEndStars(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

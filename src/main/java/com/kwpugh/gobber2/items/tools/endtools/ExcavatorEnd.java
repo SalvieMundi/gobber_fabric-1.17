@@ -1,18 +1,17 @@
 package com.kwpugh.gobber2.items.tools.endtools;
 
-import java.util.List;
-
+import com.google.common.collect.Sets;
 import com.kwpugh.gobber2.Gobber2;
 
 import com.kwpugh.pugh_tools.Tools.AreaUtil;
-import com.kwpugh.pugh_tools.Tools.Hammer;
+import com.kwpugh.pugh_tools.Tools.Excavator;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
@@ -23,45 +22,22 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class NewHammerEnd extends Hammer
+import java.util.List;
+import java.util.Set;
+
+public class ExcavatorEnd extends Excavator
 {
-    public NewHammerEnd(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings)
+    private static final Set<Block> EFFECTIVE_BLOCKS;
+
+    public ExcavatorEnd(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }
 
     int radius = 1;
     String radiusText = "3x3";
-    boolean obsidianFlag;
-    boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndHammer5x5;
+    boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndExcavator5x5;
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
-
-    @Override
-    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity playerIn)
-    {
-        ItemStack stack = playerIn.getMainHandStack();
-        NbtCompound tag = stack.getNbt();
-        radius = tag.getInt("radius");
-
-        if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
-        {
-            obsidianFlag = (state.getBlock() == Blocks.OBSIDIAN || state.getBlock() == Blocks.CRYING_OBSIDIAN) ? true : false;
-            AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "hammer", obsidianFlag);
-        }
-
-        return true;
-    }
-
-    @Override
-    public boolean isSuitableFor(BlockState state)
-    {
-        if (Items.NETHERITE_PICKAXE.isSuitableFor(state))
-        {
-            return true;
-        }
-
-        return Items.NETHERITE_PICKAXE.getMiningSpeedMultiplier(null, state) > 1.0f;
-    }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
@@ -101,6 +77,32 @@ public class NewHammerEnd extends Hammer
     }
 
     @Override
+    public boolean isSuitableFor(BlockState state)
+    {
+        return EFFECTIVE_BLOCKS.contains(state.getBlock());
+    }
+
+    @Override
+    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity playerIn)
+    {
+        ItemStack stack = playerIn.getMainHandStack();
+        NbtCompound tag = stack.getNbt();
+        radius = tag.getInt("radius");
+
+        if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
+        {
+            AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "excavator", false);
+        }
+
+        return true;
+    }
+
+    static
+    {
+        EFFECTIVE_BLOCKS = Sets.newHashSet(Blocks.CLAY, Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.PODZOL, Blocks.FARMLAND, Blocks.GRASS_BLOCK, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.RED_SAND, Blocks.SNOW_BLOCK, Blocks.SNOW, Blocks.SOUL_SAND, Blocks.DIRT_PATH, Blocks.WHITE_CONCRETE_POWDER, Blocks.ORANGE_CONCRETE_POWDER, Blocks.MAGENTA_CONCRETE_POWDER, Blocks.LIGHT_BLUE_CONCRETE_POWDER, Blocks.YELLOW_CONCRETE_POWDER, Blocks.LIME_CONCRETE_POWDER, Blocks.PINK_CONCRETE_POWDER, Blocks.GRAY_CONCRETE_POWDER, Blocks.LIGHT_GRAY_CONCRETE_POWDER, Blocks.CYAN_CONCRETE_POWDER, Blocks.PURPLE_CONCRETE_POWDER, Blocks.BLUE_CONCRETE_POWDER, Blocks.BROWN_CONCRETE_POWDER, Blocks.GREEN_CONCRETE_POWDER, Blocks.RED_CONCRETE_POWDER, Blocks.BLACK_CONCRETE_POWDER, Blocks.SOUL_SOIL);
+    }
+
+    @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player)
     {
         stack.getOrCreateNbt().putInt("radius", 1);
@@ -112,13 +114,14 @@ public class NewHammerEnd extends Hammer
         }
     }
 
+    @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
         // Get tag values for display in tooltips
         NbtCompound tag = itemStack.getNbt();
         radiusText = tag.getString("radiusText");
 
-        tooltip.add(new TranslatableText("item.gobber2.gobber2_hammer.tip1").formatted(Formatting.GREEN));
+        tooltip.add(new TranslatableText("item.gobber2.gobber2_excavator.tip1").formatted(Formatting.GREEN));
 
         if(enable5x5)
         {
