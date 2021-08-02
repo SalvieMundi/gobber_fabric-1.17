@@ -118,7 +118,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     	 @Comment("\n"
     			+"\n"
     	 		+ "***********************"
- 	    		+"\nRings"
+ 	    		+"\nRing Settings"
  	    		+"\n***********************") 
  		public int ringAttractionRange = 8;
  		public int ringMinerCooldown = 120;
@@ -145,7 +145,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		 @Comment("\n"
  				+"\n"
  				+ "***********************"
-  	    		+"\nMedallions"
+  	    		+"\nMedallion Settings"
   	    		+"\n***********************") 
  		public int medallionExpMultiplier = 5;
 		public int medallionLesserHealingAmount = 1;
@@ -156,7 +156,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		 @Comment("\n"
  				+"\n"
  		 		+ "***********************"
-   	    		+"\nStaffs"
+   	    		+"\nStaff Settings"
    	    		+"\n***********************") 	 
  		public int staffTransformationDurability = 1025;
  		public int staffClearingRange = 11;
@@ -171,7 +171,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		@Comment("\n"
 				+"\n"
 				+ "***********************"
- 	    		+"\nTools"
+ 	    		+"\nTool Settings"
  	    		+"\n***********************")	
 		public int swordSniperCooldoown = 240;
 		public boolean enableEndHammer5x5 = true;
@@ -180,6 +180,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableHammers = true;
 		public boolean enableExcavators = true;
 		public boolean enablePaxels = true;
+		public boolean enableNetherSwordPerks = true;
 	
 	   	@Comment("\n"
     			+"\n"

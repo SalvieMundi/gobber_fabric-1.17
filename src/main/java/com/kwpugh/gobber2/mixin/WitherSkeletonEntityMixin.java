@@ -1,5 +1,7 @@
 package com.kwpugh.gobber2.mixin;
 
+import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
+import net.minecraft.entity.mob.MobEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -33,25 +35,9 @@ public abstract class WitherSkeletonEntityMixin extends AbstractSkeletonEntity
 	{
 		if(!world.isClient && (source.getAttacker() instanceof PlayerEntity))
 		{
-			PlayerEntity player = (PlayerEntity) source.getAttacker();
-			ItemStack mainHand = player.getEquippedStack(EquipmentSlot.MAINHAND);
-			ItemStack offHand = player.getEquippedStack(EquipmentSlot.OFFHAND);
-			
-			if(player.hasStatusEffect(StatusEffects.WITHER));
-			{
-				player.removeStatusEffect(StatusEffects.WITHER);
-			}
-			
-			if(mainHand.getItem() == ItemInit.GOBBER2_SWORD_NETHER)
-			{
-				this.dropItem(Items.WITHER_SKELETON_SKULL);  
-			}
-			
-			if(offHand.getItem() == ItemInit.GOBBER2_MEDALLION_EXP)
-			{
-				StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, 120, 0, true, true);
-				player.addStatusEffect(effect);
-			}
+			WitherSkeletonEntity self = (WitherSkeletonEntity) (Object) this;
+
+			PlayerSpecialAbilities.giveNetherSwordPerk(source, self);
 		}
 	}
 }

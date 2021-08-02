@@ -1,17 +1,24 @@
 package com.kwpugh.gobber2.util;
 
 import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.init.EffectsInit;
+import com.kwpugh.gobber2.init.ItemInit;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class PlayerSpecialAbilities
 {
 	static boolean waterCheck = Gobber2.CONFIG.GENERAL.medallionBreathingWaterCheck;
+	static boolean enableNetherSwordPerks = Gobber2.CONFIG.GENERAL.enableNetherSwordPerks;
 
 	//Increases the player's food level to max on tick update, based on inputs
 	public static void giveHealing(World world, PlayerEntity player, ItemStack itemstack, int amount)
@@ -196,5 +203,28 @@ public class PlayerSpecialAbilities
 		}
 		
 		return;
+	}
+
+	public static void giveNetherSwordPerk(DamageSource source, WitherSkeletonEntity self)
+	{
+		PlayerEntity player = (PlayerEntity) source.getAttacker();
+		ItemStack mainHand = player.getEquippedStack(EquipmentSlot.MAINHAND);
+		ItemStack offHand = player.getEquippedStack(EquipmentSlot.OFFHAND);
+
+		if(player.hasStatusEffect(StatusEffects.WITHER));
+		{
+			player.removeStatusEffect(StatusEffects.WITHER);
+		}
+
+		if(mainHand.getItem() == ItemInit.GOBBER2_SWORD_NETHER & enableNetherSwordPerks)
+		{
+			self.dropItem(Items.WITHER_SKELETON_SKULL);
+		}
+
+		if(offHand.getItem() == ItemInit.GOBBER2_MEDALLION_EXP)
+		{
+			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, 120, 0, true, true);
+			player.addStatusEffect(effect);
+		}
 	}
 }

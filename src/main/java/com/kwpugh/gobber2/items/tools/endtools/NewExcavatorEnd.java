@@ -2,7 +2,7 @@ package com.kwpugh.gobber2.items.tools.endtools;
 
 import com.google.common.collect.Sets;
 import com.kwpugh.gobber2.Gobber2;
-import com.kwpugh.gobber2.util.EnableUtil;
+
 import com.kwpugh.pugh_tools.Tools.AreaUtil;
 import com.kwpugh.pugh_tools.Tools.Excavator;
 
@@ -13,6 +13,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -47,19 +48,28 @@ public class NewExcavatorEnd extends Excavator
         {
             if (!world.isClient && user.isSneaking())
             {
-                EnableUtil.changeEnabled(user, hand);
+                // Get tags for change mode checking
+                NbtCompound subTags = itemStack.getNbt();
+                radius = subTags.getInt("radius");
+
                 if(radius == 1)
                 {
                     radius = radius + 1;
                     radiusText = "5x5";
-                    user.sendMessage((new TranslatableText("item.gobber2.gobber2_hammer.tip5", radiusText)), true);
                 }
                 else
                 {
                     radius = radius - 1;
                     radiusText = "3x3";
-                    user.sendMessage((new TranslatableText("item.gobber2.gobber2_hammer.tip5", radiusText)), true);
                 }
+                user.sendMessage((new TranslatableText("Changed to: " + radiusText)), true);
+
+                // Write new values back to tags
+                subTags.putInt("radius", radius);
+                subTags.putString("radiusText", radiusText);
+                itemStack.setNbt(subTags);
+
+                return TypedActionResult.success(itemStack);
             }
         }
 
@@ -75,6 +85,10 @@ public class NewExcavatorEnd extends Excavator
     @Override
     public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity playerIn)
     {
+        ItemStack stack = playerIn.getMainHandStack();
+        NbtCompound tag = stack.getNbt();
+        radius = tag.getInt("radius");
+
         if(!playerIn.isSneaking() && playerIn.getMainHandStack().isSuitableFor(world.getBlockState(pos)))
         {
             AreaUtil.attemptBreakNeighbors(world, playerIn, radius, "excavator", false);
@@ -91,6 +105,9 @@ public class NewExcavatorEnd extends Excavator
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player)
     {
+        stack.getOrCreateNbt().putInt("radius", 1);
+        stack.getOrCreateNbt().putString("radiusText", "3x3");
+
         if(unbreakable)
         {
             stack.getOrCreateNbt().putBoolean("Unbreakable", true);
@@ -100,15 +117,9 @@ public class NewExcavatorEnd extends Excavator
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
-        String range;
-        if(radius == 1)
-        {
-            range = "3x3";
-        }
-        else
-        {
-            range = "5x5";
-        }
+        // Get tag values for display in tooltips
+        NbtCompound tag = itemStack.getNbt();
+        radiusText = tag.getString("radiusText");
 
         tooltip.add(new TranslatableText("item.gobber2.gobber2_excavator.tip1").formatted(Formatting.GREEN));
 
@@ -118,6 +129,6 @@ public class NewExcavatorEnd extends Excavator
             tooltip.add(new TranslatableText("item.gobber2.gobber2_hammer.tip4").formatted(Formatting.YELLOW));
         }
 
-        tooltip.add(new TranslatableText("item.gobber2.gobber2_hammer.tip2", range).formatted(Formatting.RED));
+        tooltip.add(new TranslatableText("item.gobber2.gobber2_hammer.tip2", radiusText).formatted(Formatting.RED));
     }
 }
