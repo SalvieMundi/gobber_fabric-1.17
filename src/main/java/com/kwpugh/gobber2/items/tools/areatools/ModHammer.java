@@ -1,7 +1,6 @@
 package com.kwpugh.gobber2.items.tools.areatools;
 
 import com.kwpugh.pugh_tools.Tools.Hammer;
-
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -12,9 +11,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewHammer extends Hammer
+public class ModHammer extends Hammer
 {
-    public NewHammer(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings)
+    public ModHammer(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

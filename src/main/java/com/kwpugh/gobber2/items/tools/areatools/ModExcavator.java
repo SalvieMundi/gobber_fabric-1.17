@@ -1,7 +1,6 @@
 package com.kwpugh.gobber2.items.tools.areatools;
 
 import com.kwpugh.pugh_tools.Tools.Excavator;
-
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -12,9 +11,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewExcavator extends Excavator
+public class ModExcavator extends Excavator
 {
-    public NewExcavator(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
+    public ModExcavator(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

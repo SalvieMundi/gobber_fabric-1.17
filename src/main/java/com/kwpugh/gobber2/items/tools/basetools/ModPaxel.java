@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewPaxel extends Paxel
+public class ModPaxel extends Paxel
 {
-    public NewPaxel(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
+    public ModPaxel(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }

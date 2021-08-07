@@ -178,21 +178,21 @@ public class ItemInit
 	public static final Item GOBBER2_HOE_NETHER = new ModHoe(GOBBER_NETHER_TOOL_MATERIAL, -9, 2.2F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_HOE_END = new HoeEnd(GOBBER_END_TOOL_MATERIAL, -9, 2.2F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 
-	public static final Item GOBBER2_PAXEL = new NewPaxel(GOBBER_TOOL_MATERIAL, 0.0F, -2.9F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_PAXEL_NETHER = new NewPaxel(GOBBER_NETHER_TOOL_MATERIAL, 2.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_PAXEL = new ModPaxel(GOBBER_TOOL_MATERIAL, 0.0F, -2.9F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_PAXEL_NETHER = new ModPaxel(GOBBER_NETHER_TOOL_MATERIAL, 2.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_PAXEL_END = new PaxelEnd(GOBBER_END_TOOL_MATERIAL, 5.0F, -2.7F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_PAXEL_STARS = new PaxelEndStars(GOBBER_END_TOOL_MATERIAL, 5.0F, -2.7F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	
-	public static final Item GOBBER2_HAMMER = new NewHammer(GOBBER_TOOL_MATERIAL, -1, -2.4F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_HAMMER_NETHER = new NewHammer(GOBBER_NETHER_TOOL_MATERIAL, 0, -2.3F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_HAMMER = new ModHammer(GOBBER_TOOL_MATERIAL, -1, -2.4F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_HAMMER_NETHER = new ModHammer(GOBBER_NETHER_TOOL_MATERIAL, 0, -2.3F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_HAMMER_END = new HammerEnd(GOBBER_END_TOOL_MATERIAL, 1, -2.2F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	
-	public static final Item GOBBER2_EXCAVATOR = new NewExcavator(GOBBER_TOOL_MATERIAL, -3.0F, -3.0F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_EXCAVATOR_NETHER = new NewExcavator(GOBBER_NETHER_TOOL_MATERIAL, -2.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_EXCAVATOR = new ModExcavator(GOBBER_TOOL_MATERIAL, -3.0F, -3.0F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_EXCAVATOR_NETHER = new ModExcavator(GOBBER_NETHER_TOOL_MATERIAL, -2.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_EXCAVATOR_END = new ExcavatorEnd(GOBBER_END_TOOL_MATERIAL, 0.0F, -2.6F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	
-	public static final Item GOBBER2_TREE_AXE = new NewTreeAxe(GOBBER_TOOL_MATERIAL, 1.0F, -2.9F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_TREE_AXE_NETHER = new NewTreeAxe(GOBBER_NETHER_TOOL_MATERIAL, 3.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_TREE_AXE = new ModTreeAxe(GOBBER_TOOL_MATERIAL, 1.0F, -2.9F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_TREE_AXE_NETHER = new ModTreeAxe(GOBBER_NETHER_TOOL_MATERIAL, 3.0F, -2.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_TREE_AXE_END = new TreeAxeEnd(GOBBER_END_TOOL_MATERIAL, 6.0F, -2.7F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_HELMET = new GobberArmor(GOBBER_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));

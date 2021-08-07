@@ -6,10 +6,10 @@ import com.kwpugh.gobber2.Gobber2;
 
 import com.kwpugh.pugh_tools.Tools.AreaUtil;
 import com.kwpugh.pugh_tools.Tools.Hammer;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -35,6 +35,19 @@ public class HammerEnd extends Hammer
     boolean obsidianFlag;
     boolean enable5x5 = Gobber2.CONFIG.GENERAL.enableEndHammer5x5;
     static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndTools;
+
+    // Used to add tag when pulled from creative tab
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
+    {
+        NbtCompound tag = stack.getNbt();
+
+        if(!tag.contains("radius"))
+        {
+            stack.getOrCreateNbt().putBoolean("Unbreakable", true);
+            stack.getOrCreateNbt().putInt("radius", 1);
+            stack.getOrCreateNbt().putString("radiusText", "3x3");
+        }
+    }
 
     @Override
     public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity playerIn)

@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NewTreeAxe extends TreeAxe
+public class ModTreeAxe extends TreeAxe
 {
-    public NewTreeAxe(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
+    public ModTreeAxe(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings)
     {
         super(material, attackDamage, attackSpeed, settings);
     }
