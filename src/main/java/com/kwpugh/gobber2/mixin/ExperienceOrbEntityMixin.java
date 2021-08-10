@@ -31,7 +31,7 @@ public abstract class ExperienceOrbEntityMixin extends Entity
 	
 	
 	@Inject(at = @At("HEAD"), method = "onPlayerCollision")
-	public void checkForMedallion(PlayerEntity player, CallbackInfo ci)
+	public void gobberCheckForMedallion(PlayerEntity player, CallbackInfo ci)
 	{
 		if(!world.isClient)
 		{

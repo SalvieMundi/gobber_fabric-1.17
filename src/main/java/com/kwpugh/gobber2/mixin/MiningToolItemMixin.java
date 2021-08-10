@@ -15,7 +15,7 @@ import net.minecraft.item.ItemStack;
 public class MiningToolItemMixin
 {
     @Inject(method = "getMiningSpeedMultiplier", at = @At("HEAD"), cancellable = true)
-    public void getMiningSpeedMultiplierInject(ItemStack stack, BlockState state, CallbackInfoReturnable<Float> cir)
+    public void gobberGetMiningSpeedMultiplierInject(ItemStack stack, BlockState state, CallbackInfoReturnable<Float> cir)
     {
         if(ObsidianBreaking.fastAtObsidian(state, stack))
         {

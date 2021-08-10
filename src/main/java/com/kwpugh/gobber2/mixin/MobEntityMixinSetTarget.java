@@ -26,7 +26,7 @@ public abstract class MobEntityMixinSetTarget extends Entity
     }
 
     @Inject(at = @At("HEAD"), method = "setTarget", cancellable = true)
-    public void setTarget(LivingEntity target, CallbackInfo ci)
+    public void gobberSetTarget(LivingEntity target, CallbackInfo ci)
     {
         MobEntity self = (MobEntity) (Object) this;
 

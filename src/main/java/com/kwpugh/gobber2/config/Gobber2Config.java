@@ -339,5 +339,45 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableSpecialItem = true;
 		public int specialItemMin = 20000;
 		public int specialItemMax = 75000;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nNemesis Settings"
+				+"\n"
+				+ "\n***********************")
+		public boolean enableAllNemesis = true;
+		public double dropChanceNemesis = 0.15;
+		public double attackDamageNemesis = 4.0;
+		public double healthNemesis = 20.0;
+		public double movementSpeedNemesis = 0.3;
+		public double attackKnockbackNemesis = 0.7;
+		public double knockbackResistanceNemesis = 1.0;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nNether Nemesis Settings"
+				+"\n"
+				+ "\n***********************")
+		public double dropChanceNemesisNether = 0.15;
+		public double attackDamageNemesisNether = 6.0;
+		public double healthNemesisNether = 40.0;
+		public double movementSpeedNemesisNether = 0.4;
+		public double attackKnockbackNemesisNether = 0.7;
+		public double knockbackResistanceNemesisNether = 1.0;
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nEnd Nemesis Settings"
+				+"\n"
+				+ "\n***********************")
+		public double dropChanceNemesisEnd = 0.15;
+		public double attackDamageNemesisEnd = 8.0;
+		public double healthNemesisEnd = 60.0;
+		public double movementSpeedNemesisEnd = 0.5;
+		public double attackKnockbackNemesisEnd = 0.7;
+		public double knockbackResistanceNemesisEnd = 1.0;
     }
 }

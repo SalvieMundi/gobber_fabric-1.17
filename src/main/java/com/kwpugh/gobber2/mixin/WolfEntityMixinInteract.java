@@ -17,7 +17,7 @@ import net.minecraft.util.Hand;
 public class WolfEntityMixinInteract
 {
     @Inject(method = "interactMob", at = @At(value = "HEAD"), cancellable = true)
-    public void mobCatcherInteractMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir)
+    public void gobberInteractMob(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir)
     {
         ItemStack stack = player.getStackInHand(hand);
 
