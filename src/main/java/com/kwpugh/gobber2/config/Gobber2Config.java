@@ -346,7 +346,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\nNemesis Settings"
 				+"\n"
 				+ "\n***********************")
-		public boolean enableAllNemesis = true;
+		public boolean enableAllNemesis = false;
 		public double dropChanceNemesis = 0.15;
 		public double attackDamageNemesis = 4.0;
 		public double healthNemesis = 20.0;

@@ -1,5 +1,8 @@
 package com.kwpugh.gobber2.mixin;
 
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ElytraItem;
+import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,17 +31,17 @@ public abstract class PlayerEntityMixinFallFlying extends LivingEntity
   @Inject(method = "checkFallFlying", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/entity/player/PlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"), cancellable = true)
   public void gobberCheckFallFlying(CallbackInfoReturnable<Boolean> info)
   {
-    ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
-    if (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_END) {
-      this.startFallFlying();
-      info.setReturnValue(true);
+    if (!this.onGround && !this.isFallFlying() && !this.isTouchingWater() && !this.hasStatusEffect(StatusEffects.LEVITATION))
+    {
+      ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
+      if (itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_END))
+      {
+        this.startFallFlying();
+        info.setReturnValue(true);
+      }
     }
   }
 
   @Shadow
-  public void startFallFlying()
-  {
-	  
-  }
-
+  public void startFallFlying() {}
 }
