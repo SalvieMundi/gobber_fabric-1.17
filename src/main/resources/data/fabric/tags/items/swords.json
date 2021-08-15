@@ -1,8 +1,21 @@
 {
    "replace": false,
    "values": [
-	"gobber2:gobber2_sword",
-	"gobber2:gobber2_sword_nether",
-	"gobber2:gobber2_sword_end"
+     {
+       "id": "gobber2:gobber2_sword",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_sword_nether",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_sword_end",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_sword_sniper",
+       "required": false
+     }
    ]
  } 

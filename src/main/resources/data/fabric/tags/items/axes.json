@@ -1,8 +1,33 @@
 {
    "replace": false,
    "values": [
-	"gobber2:gobber2_axe",
-	"gobber2:gobber2_axe_nether",
-	"gobber2:gobber2_axe_end"
+     {
+       "id": "gobber2:gobber2_axe",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_axe_nether",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_axe_end",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_paxel",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_paxel_nether",
+       "required": false
+     },
+     {
+       "id": "gobber2:gobber2_paxel_end",
+       "required": false
+     },
+     {
+       "id":  "gobber2:gobber2_paxel_stars",
+       "required": false
+     }
    ]
  } 
