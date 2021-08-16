@@ -513,4 +513,8 @@
   "advancements.gobber2.block_maturator.title": "Crece! Bebé! Crece!",
   "advancements.gobber2.block_maturator.desc": "Fabrica un Bloque de Crecimiento",
 
+  "entity.gobber2.nemesis": "Gobber Nemesis",
+  "entity.gobber2.nemesis_nether": "Gobber Nemesis",
+  "entity.gobber2.nemesis_end": "Gobber Nemesis",
+
   "itemGroup.gobber2.gobber2_group": "Gobber 2",
