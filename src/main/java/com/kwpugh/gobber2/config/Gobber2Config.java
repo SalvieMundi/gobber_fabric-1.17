@@ -241,6 +241,12 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableEndAllPerks = true;
 		public boolean enableEndHealthPerks = true;
 		public boolean enablePhantomProtection = true;
+		public boolean enableDragonFlight = true;
+		public boolean enableDragonAllPerks = true;
+		public boolean enableDragonHealthPerks = true;
+		public boolean enableDragonProtectiveEffects = true;
+		public boolean enableDragonNoFallDamage = true;
+		public boolean unbreakableDragonArmor = true;
 		
        	@Comment("\n"
     			+"\n"
@@ -282,11 +288,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"******************************"
 				+"\nDragon Armor Material Stats"
 				+"\n******************************")
-		public boolean enableFlight = true;
-		public boolean enableHealingPerks = true;
-		public boolean enableProtectiveEffects = true;
-		public boolean enableNoFallDamage = true;
-		public boolean unbreakableDragonArmor = true;
 		public int gobberDragonDurabilityMultiplier = 100;
 		public int gobberDragonArmorEnchantability = 30;
 		public float gobberDragonToughness = 3.0F;
@@ -346,38 +347,12 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+"\nNemesis Settings"
 				+"\n"
 				+ "\n***********************")
-		public boolean enableAllNemesis = false;
+		public boolean enableNemesis = true;
 		public double dropChanceNemesis = 0.15;
 		public double attackDamageNemesis = 4.0;
 		public double healthNemesis = 20.0;
 		public double movementSpeedNemesis = 0.3;
 		public double attackKnockbackNemesis = 0.7;
 		public double knockbackResistanceNemesis = 1.0;
-
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
-				+"\nNether Nemesis Settings"
-				+"\n"
-				+ "\n***********************")
-		public double dropChanceNemesisNether = 0.15;
-		public double attackDamageNemesisNether = 6.0;
-		public double healthNemesisNether = 40.0;
-		public double movementSpeedNemesisNether = 0.4;
-		public double attackKnockbackNemesisNether = 0.7;
-		public double knockbackResistanceNemesisNether = 1.0;
-
-		@Comment("\n"
-				+"\n"
-				+ "***********************"
-				+"\nEnd Nemesis Settings"
-				+"\n"
-				+ "\n***********************")
-		public double dropChanceNemesisEnd = 0.15;
-		public double attackDamageNemesisEnd = 8.0;
-		public double healthNemesisEnd = 60.0;
-		public double movementSpeedNemesisEnd = 0.5;
-		public double attackKnockbackNemesisEnd = 0.7;
-		public double knockbackResistanceNemesisEnd = 1.0;
     }
 }

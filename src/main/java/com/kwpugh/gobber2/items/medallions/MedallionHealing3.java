@@ -30,8 +30,8 @@ public class MedallionHealing3 extends Item
     {
         PlayerEntity player = (PlayerEntity) entity;
 
-        PlayerSpecialAbilities.giveHealing(world, player, stack,amount);
-        PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
+        PlayerSpecialAbilities.giveHealing(player, amount);
+        PlayerSpecialAbilities.giveSaturationEffect(player);
     }
 
     @Override

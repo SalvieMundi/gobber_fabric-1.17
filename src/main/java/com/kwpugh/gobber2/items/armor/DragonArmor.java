@@ -26,12 +26,13 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
         super(material, slot, settings);
     }
 
-    static boolean enableHealing = Gobber2.CONFIG.GENERAL.enableHealingPerks;
-    static boolean enableProtection = Gobber2.CONFIG.GENERAL.enableProtectiveEffects;
-    static boolean enableNoFall = Gobber2.CONFIG.GENERAL.enableNoFallDamage;
-    static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableDragonArmor;
-    static int healing = Gobber2.CONFIG.GENERAL.gobberDragonArmorHealingPoints;
-    static boolean enableFlight = Gobber2.CONFIG.GENERAL.enableFlight;
+    static boolean enableDragonAllPerks = Gobber2.CONFIG.GENERAL.enableDragonAllPerks;
+    static boolean enableDragonHealthPerks = Gobber2.CONFIG.GENERAL.enableDragonHealthPerks;
+    static boolean enableDragonProtectiveEffects = Gobber2.CONFIG.GENERAL.enableDragonProtectiveEffects;
+    static boolean enableDragonNoFallDamage = Gobber2.CONFIG.GENERAL.enableDragonNoFallDamage;
+    static boolean unbreakableDragonArmor = Gobber2.CONFIG.GENERAL.unbreakableDragonArmor;
+    static int gobberDragonArmorHealingPoints = Gobber2.CONFIG.GENERAL.gobberDragonArmorHealingPoints;
+    static boolean enableDragonFlight = Gobber2.CONFIG.GENERAL.enableDragonFlight;
 
     @Override
     // Depends on PlayerEntityMixinArmor and ArmorTickable interface
@@ -41,30 +42,33 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
 
         if (PlayerEquipUtil.isPlayerWearingDragonArmor(player))
         {
-            if(enableHealing)
+            if(enableDragonAllPerks)
             {
-                if (player.age % 180 == 0)
+                if(enableDragonHealthPerks)
                 {
-                    PlayerSpecialAbilities.giveGreaterAbsorption(world, player, stack);
-                    PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
-                    PlayerSpecialAbilities.giveHealing(world, player, stack, healing);
+                    if (player.age % 180 == 0)
+                    {
+                        PlayerSpecialAbilities.giveGreaterAbsorption(player);
+                        PlayerSpecialAbilities.giveSaturationEffect(player);
+                        PlayerSpecialAbilities.giveHealing(player, gobberDragonArmorHealingPoints);
+                    }
+                }
+
+                if(enableDragonProtectiveEffects)
+                {
+                    PlayerSpecialAbilities.giveWaterBreathing(player);
+                    PlayerSpecialAbilities.givePhoenixEffect(world, player);
+                    PlayerSpecialAbilities.giveCuringEffect(world, player);
+                }
+
+                if(enableDragonNoFallDamage)
+                {
+                    player.fallDistance = 0.0F;
                 }
             }
-
-            if(enableProtection)
-            {
-                PlayerSpecialAbilities.giveWaterBreathing(world, player);
-                PlayerSpecialAbilities.givePhoenixEffect(world, player);
-                PlayerSpecialAbilities.giveCuringEffect(world, player);
             }
 
-            if(enableNoFall)
-            {
-                player.fallDistance = 0.0F;
-            }
-        }
-
-        if (PlayerEquipUtil.isPlayerWearingDragonArmor(player) && enableFlight)
+        if (PlayerEquipUtil.isPlayerWearingDragonArmor(player) && enableDragonFlight)
         {
             player.getAbilities().allowFlying = true;
         }
@@ -92,7 +96,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player)
     {
-        if(unbreakable)
+        if(unbreakableDragonArmor)
         {
             stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
@@ -101,11 +105,30 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
-        tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip1").formatted(Formatting.GREEN));
-
-        if(enableFlight)
+        if(enableDragonAllPerks)
         {
-            tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip2").formatted(Formatting.GREEN));
+            tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip1").formatted(Formatting.GREEN));
+
+            if(enableDragonProtectiveEffects)
+            {
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip2").formatted(Formatting.GREEN));
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip3").formatted(Formatting.GREEN));
+            }
+
+            if(enableDragonHealthPerks)
+            {
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip4").formatted(Formatting.GREEN));
+            }
+
+            if(enableDragonNoFallDamage)
+            {
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip5").formatted(Formatting.GREEN));
+            }
+
+            if(enableDragonFlight)
+            {
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip6").formatted(Formatting.GREEN));
+            }
         }
     }
 }

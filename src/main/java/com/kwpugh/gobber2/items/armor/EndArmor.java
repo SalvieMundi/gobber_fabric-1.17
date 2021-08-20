@@ -25,14 +25,14 @@ public class EndArmor extends ArmorItem
 		super(material, slot, settings);
 	}
 	
-	static boolean enablePerks = Gobber2.CONFIG.GENERAL.enableEndAllPerks;
-	static boolean unbreakable = Gobber2.CONFIG.GENERAL.unbreakableEndArmor;
-	static boolean enableHealth = Gobber2.CONFIG.GENERAL.enableEndHealthPerks;
+	static boolean enableEndAllPerks = Gobber2.CONFIG.GENERAL.enableEndAllPerks;
+	static boolean unbreakableEndArmor = Gobber2.CONFIG.GENERAL.unbreakableEndArmor;
+	static boolean enableEndHealthPerks = Gobber2.CONFIG.GENERAL.enableEndHealthPerks;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
-		if(!world.isClient && entity instanceof PlayerEntity && enablePerks) 
+		if(!world.isClient && entity instanceof PlayerEntity && enableEndAllPerks)
 		{
 			PlayerEntity player = (PlayerEntity) entity;
 	
@@ -48,15 +48,19 @@ public class EndArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					if(enableHealth)
+					System.out.println("Health: " + player.getHealth());
+					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
+					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
+
+					if(enableEndHealthPerks)
 					{
-						PlayerSpecialAbilities.giveGreaterAbsorption(world, player, stack);
-						PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
-						PlayerSpecialAbilities.giveHealing(world, player, stack, 4);
+						PlayerSpecialAbilities.giveGreaterAbsorption(player);
+						PlayerSpecialAbilities.giveSaturationEffect(player);
+						PlayerSpecialAbilities.giveHealing(player, 4);
 					}
 				}
 	    		
-	    		PlayerSpecialAbilities.giveWaterBreathing(world, player);
+	    		PlayerSpecialAbilities.giveWaterBreathing(player);
 	    		PlayerSpecialAbilities.givePhoenixEffect(world, player);
 	    		
 	    		player.fallDistance = 0.0F;
@@ -67,7 +71,7 @@ public class EndArmor extends ArmorItem
 	@Override
 	public void onCraft(ItemStack stack, World world, PlayerEntity player) 
 	{
-		if(unbreakable)
+		if(unbreakableEndArmor)
 		{
 			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
 		}
@@ -76,8 +80,15 @@ public class EndArmor extends ArmorItem
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
 	{
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip1").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip2").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip3").formatted(Formatting.GREEN));
+		if(enableEndAllPerks)
+		{
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip1").formatted(Formatting.GREEN));
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip2").formatted(Formatting.GREEN));
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip3").formatted(Formatting.GREEN));
+			if(enableEndHealthPerks)
+			{
+				tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_end.tip4").formatted(Formatting.GREEN));
+			}
+		}
 	}	
 }

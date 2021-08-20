@@ -29,7 +29,7 @@ public class MedallionHealing extends Item
     {
         PlayerEntity player = (PlayerEntity) entity;
 
-        PlayerSpecialAbilities.giveHealing(world, player, stack,amount);
+        PlayerSpecialAbilities.giveHealing(player, amount);
     }
 
     @Override

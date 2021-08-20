@@ -21,7 +21,7 @@ public class PlayerSpecialAbilities
 	static boolean enableNetherSwordPerks = Gobber2.CONFIG.GENERAL.enableNetherSwordPerks;
 
 	//Increases the player's food level to max on tick update, based on inputs
-	public static void giveHealing(World world, PlayerEntity player, ItemStack itemstack, int amount)
+	public static void giveHealing(PlayerEntity player, int amount)
 	{
 		if(player.age % 180 == 0)
 		{
@@ -30,8 +30,6 @@ public class PlayerSpecialAbilities
 				player.heal(amount);
 			}		
 		}
-		
-    	return;
 	}
 
 	// Checks if player has negative effects and removes them, used on Dragon Armor
@@ -86,18 +84,17 @@ public class PlayerSpecialAbilities
 		}
 	}
 	//Set player saturation level to max on tick update
-	public static void giveSaturationEffect(World world, PlayerEntity player, ItemStack itemstack)
+	public static void giveSaturationEffect(PlayerEntity player)
 	{
 		if(player.age % 180 == 0)
 		{
-			player.getHungerManager().setFoodLevel(player.getHungerManager().getFoodLevel() + 10);
+			if(player.getHungerManager().getFoodLevel() < 20)
+			player.getHungerManager().setFoodLevel(player.getHungerManager().getFoodLevel() + 1);
 		}
-		
-    	return;
 	}
 	
 	//Lesser yellow hearts on tick update
-	public static void giveLesserAbsorption(World world, PlayerEntity player, ItemStack itemstack)
+	public static void giveLesserAbsorption(PlayerEntity player)
 	{
 		float current = player.getAbsorptionAmount();
 		
@@ -116,21 +113,18 @@ public class PlayerSpecialAbilities
 			
 			return;
 		}
+
 		if(current < 9)
 		{
 			if (player.age % 180 == 0)
 			{
 				player.setAbsorptionAmount(current + 0.33F);
-			} 
-			
-			return;
+			}
 		}
-		
-    	return;
 	}
 	
 	//Greater yellow hearts on tick update
-	public static void giveGreaterAbsorption(World world, PlayerEntity player, ItemStack itemstack)
+	public static void giveGreaterAbsorption(PlayerEntity player)
 	{
 		float current = player.getAbsorptionAmount();
 		
@@ -153,12 +147,8 @@ public class PlayerSpecialAbilities
 			if (player.age % 180 == 0)
 			{
 				player.setAbsorptionAmount(current + 1.0F);
-			} 
-			
-			return;
+			}
 		}
-		
-    	return;
 	}
 	
 	public static void givePhoenixEffect(World world, PlayerEntity player)
@@ -181,15 +171,11 @@ public class PlayerSpecialAbilities
 				player.addStatusEffect(effect);
 				player.addStatusEffect(effect2);
 				player.addStatusEffect(effect3);
-			}	
-			
-			return;
+			}
 		}
-		
-		return;
 	}
 	
-	public static void giveWaterBreathing(World world, PlayerEntity player)
+	public static void giveWaterBreathing(PlayerEntity player)
 	{
 		if(player.isSubmergedInWater() || !waterCheck)
 		{
@@ -198,11 +184,7 @@ public class PlayerSpecialAbilities
 			{
 				player.addStatusEffect(effect);
 			}
-			
-			return;
 		}
-		
-		return;
 	}
 
 	public static void giveNetherSwordPerk(DamageSource source, WitherSkeletonEntity self)

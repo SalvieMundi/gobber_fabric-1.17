@@ -17,14 +17,14 @@ import net.minecraft.util.Identifier;
 
 public class LootTableInit
 {
-	static boolean enable = Gobber2.CONFIG.GENERAL.lootEnable;
+	static boolean lootEnable = Gobber2.CONFIG.GENERAL.lootEnable;
 	static float lootChance = Gobber2.CONFIG.GENERAL.lootChance;
 	
 	private static final List<LootTableInsert> INSERTS = Lists.newArrayList();
 
 	public static void registerLoot()
 	{
-		if(enable)
+		if(lootEnable)
 		{
 			FabricLootPoolBuilder GOBBER_RING_RETURN = FabricLootPoolBuilder.builder()
 					.rolls(ConstantLootNumberProvider.create(1))

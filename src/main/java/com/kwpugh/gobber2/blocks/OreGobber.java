@@ -33,17 +33,17 @@ public class OreGobber  extends OreBlock
 	}
 
 	Random random = new Random();
-	static boolean enable = Gobber2.CONFIG.GENERAL.enableAllNemesis;
-	static double chance = Gobber2.CONFIG.GENERAL.dropChanceNemesis;
+	static boolean enableNemesis = Gobber2.CONFIG.GENERAL.enableNemesis;
+	static double dropChanceNemesis = Gobber2.CONFIG.GENERAL.dropChanceNemesis;
 
 	public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack)
 	{
 		super.onStacksDropped(state, world, pos, stack);
 
-		if(enable)
+		if(enableNemesis)
 		{
 			double r = random.nextDouble();
-			if (r <= chance)
+			if (r <= dropChanceNemesis)
 			{
 				if (world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0)
 				{
@@ -55,8 +55,8 @@ public class OreGobber  extends OreBlock
 
 	private void spawnNemesis(ServerWorld world, BlockPos pos)
 	{
-		NemesisEntity nemesisEntity = (NemesisEntity) EntityInit.NEMESIS.create(world);
-		nemesisEntity.refreshPositionAndAngles((double)pos.getX() + 0.6D, (double)pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
+		NemesisEntity nemesisEntity = EntityInit.NEMESIS.create(world);
+		nemesisEntity.refreshPositionAndAngles((double)pos.getX() + 0.6D, pos.getY(), (double)pos.getZ() + 0.5D, 0.0F, 0.0F);
 		world.spawnEntity(nemesisEntity);
 		nemesisEntity.playSpawnEffects();
 	}

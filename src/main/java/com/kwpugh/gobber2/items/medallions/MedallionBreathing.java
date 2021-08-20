@@ -26,7 +26,7 @@ public class MedallionBreathing extends Item
 	{
 		PlayerEntity player = (PlayerEntity) entity;
 		
-		PlayerSpecialAbilities.giveWaterBreathing(world, player);
+		PlayerSpecialAbilities.giveWaterBreathing(player);
 	}
 	
 	@Override

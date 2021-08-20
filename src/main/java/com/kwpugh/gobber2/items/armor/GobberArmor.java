@@ -25,13 +25,13 @@ public class GobberArmor extends ArmorItem
 		super(material, slot, settings);
 	}
 	
-	static boolean enablePerks = Gobber2.CONFIG.GENERAL.enableGobberAllPerks;
-	static boolean enableHealth = Gobber2.CONFIG.GENERAL.enableGobberHealthPerks;
+	static boolean enableGobberAllPerks = Gobber2.CONFIG.GENERAL.enableGobberAllPerks;
+	static boolean enableGobberHealthPerks = Gobber2.CONFIG.GENERAL.enableGobberHealthPerks;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
-		if(!world.isClient && entity instanceof PlayerEntity && enablePerks) 
+		if(!world.isClient && entity instanceof PlayerEntity && enableGobberAllPerks)
 		{
 			PlayerEntity player = (PlayerEntity) entity;
 	
@@ -47,15 +47,19 @@ public class GobberArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					if(enableHealth)
+					System.out.println("Health: " + player.getHealth());
+					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
+					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
+
+					if(enableGobberHealthPerks)
 					{
-						PlayerSpecialAbilities.giveLesserAbsorption(world, player, stack);
-						PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
-						PlayerSpecialAbilities.giveHealing(world, player, stack, 2);
+						PlayerSpecialAbilities.giveLesserAbsorption(player);
+						PlayerSpecialAbilities.giveSaturationEffect(player);
+						PlayerSpecialAbilities.giveHealing(player, 2);
 					}
 				}
 	    		
-	    		PlayerSpecialAbilities.giveWaterBreathing(world, player);
+	    		PlayerSpecialAbilities.giveWaterBreathing(player);
 	      	}
 		}
 	}
@@ -63,8 +67,15 @@ public class GobberArmor extends ArmorItem
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
 	{
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip1").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip2").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip3").formatted(Formatting.GREEN));
+		if(enableGobberAllPerks)
+		{
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip1").formatted(Formatting.GREEN));
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip2").formatted(Formatting.GREEN));
+			if(enableGobberHealthPerks)
+			{
+				tooltip.add(new TranslatableText("item.gobber2.gobber2_armor.tip3").formatted(Formatting.GREEN));
+			}
+		}
+
 	}	
 }

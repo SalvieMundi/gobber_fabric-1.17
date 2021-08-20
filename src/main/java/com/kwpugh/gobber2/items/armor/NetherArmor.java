@@ -25,13 +25,13 @@ public class NetherArmor extends ArmorItem
 		super(material, slot, settings);
 	}
 	
-	static boolean enablePerks = Gobber2.CONFIG.GENERAL.enableNetherAllPerks;
-	static boolean enableHealth = Gobber2.CONFIG.GENERAL.enableNetherHealthPerks;
+	static boolean enableNetherAllPerks = Gobber2.CONFIG.GENERAL.enableNetherAllPerks;
+	static boolean enableNetherHealthPerks = Gobber2.CONFIG.GENERAL.enableNetherHealthPerks;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{				
-		if(!world.isClient && entity instanceof PlayerEntity && enablePerks) 
+		if(!world.isClient && entity instanceof PlayerEntity && enableNetherAllPerks)
 		{
 			PlayerEntity player = (PlayerEntity) entity;
 			
@@ -47,11 +47,15 @@ public class NetherArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					if(enableHealth)
+					System.out.println("Health: " + player.getHealth());
+					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
+					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
+
+					if(enableNetherHealthPerks)
 					{
-						PlayerSpecialAbilities.giveLesserAbsorption(world, player, stack);
-						PlayerSpecialAbilities.giveSaturationEffect(world, player, stack);
-						PlayerSpecialAbilities.giveHealing(world, player, stack, 2);
+						PlayerSpecialAbilities.giveLesserAbsorption(player);
+						PlayerSpecialAbilities.giveSaturationEffect(player);
+						PlayerSpecialAbilities.giveHealing(player, 2);
 					}
 				}	
 	    		
@@ -63,8 +67,15 @@ public class NetherArmor extends ArmorItem
 	@Override
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
 	{
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip1").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip2").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip3").formatted(Formatting.GREEN));
+		if(enableNetherAllPerks)
+		{
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip1").formatted(Formatting.GREEN));
+			tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip2").formatted(Formatting.GREEN));
+
+			if(enableNetherHealthPerks)
+			{
+				tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_nether.tip3").formatted(Formatting.GREEN));
+			}
+		}
 	}
 }

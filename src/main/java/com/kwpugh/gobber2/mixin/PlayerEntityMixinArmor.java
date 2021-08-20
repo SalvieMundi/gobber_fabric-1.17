@@ -48,9 +48,9 @@ public abstract class PlayerEntityMixinArmor extends LivingEntity
 
         if(self.getUuid().equals(kwpugh) && offHand == Items.DIAMOND)
         {
-            PlayerSpecialAbilities.giveHealing(this.world, self, mainHand, 5);
-            PlayerSpecialAbilities.giveSaturationEffect(this.world, self, mainHand);
-            PlayerSpecialAbilities.giveGreaterAbsorption(this.world, self, mainHand);
+            PlayerSpecialAbilities.giveHealing(self, 5);
+            PlayerSpecialAbilities.giveSaturationEffect(self);
+            PlayerSpecialAbilities.giveGreaterAbsorption(self);
             PlayerSpecialAbilities.giveCuringEffect(this.world, self);
         }
 
