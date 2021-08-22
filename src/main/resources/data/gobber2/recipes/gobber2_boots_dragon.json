@@ -1,13 +1,11 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "gobber2:gobber2_boots_end"
-    },
-    {
-      "item": "gobber2:dragon_star"
-    }
-  ],
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "gobber2:gobber2_boots_end"
+  },
+  "addition": {
+    "item": "gobber2:dragon_star"
+  },
   "result": {
     "item": "gobber2:gobber2_boots_dragon"
   }

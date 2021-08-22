@@ -10,11 +10,6 @@ import net.minecraft.item.ItemStack;
 
 public final class PlayerEquipUtil
 {
-    public static <T> T _null() 
-    {
-        return null;
-    }
-  
     static boolean phantomProtection = Gobber2.CONFIG.GENERAL.enablePhantomProtection;
     
     public static boolean isPlayerWearingGobberArmor(PlayerEntity player)

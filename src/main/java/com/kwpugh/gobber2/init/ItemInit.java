@@ -44,10 +44,7 @@ import com.kwpugh.gobber2.items.tools.endtools.*;
 import com.kwpugh.gobber2.lists.*;
 
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.MushroomStewItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -262,7 +259,8 @@ public class ItemInit
 	
 	public static final Item GOBBER2_SPECIAL_ITEM = new SpecialItem((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item DIAMOND_NUGGET = new Item((new Item.Settings()).maxCount(64).group(Gobber2.GOBBER2_GROUP));
-	
+
+
 	public static void registerItems()
 	{
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_globette"), GOBBER2_GLOBETTE);

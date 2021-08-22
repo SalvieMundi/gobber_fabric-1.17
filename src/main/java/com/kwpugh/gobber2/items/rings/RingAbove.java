@@ -35,10 +35,12 @@ public class RingAbove extends Item
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
 	{
+		int bottom = world.getBottomY(); //new
+		int top = world.getTopY(); //new
+
 		RegistryKey<World> registryKey = world.getRegistryKey();
 		ItemStack stack = player.getStackInHand(hand);
-		
-		//if (!world.isClient && !(registryKey == World.OVERWORLD || registryKey == Gobber2Dimension.GOBBER_WORLD_KEY || registryKey == Gobber2Dimension.GOBBER_WORLD_KEY2))
+
 		if (!world.isClient && !(registryKey == World.OVERWORLD))
 		{
 			player.sendMessage((new TranslatableText("item.gobber2.gobber2_ring_above.tip5")), true);   // not in this world
@@ -56,34 +58,28 @@ public class RingAbove extends Item
 			{
 				//Checking from bottom of world and working upward
 				double x = player.getX();
-				double y = 3;
+				double y = bottom + 3;  //changed
 				double z = player.getZ();
 				
 				Chunk chunk = world.getChunk((int) player.getX() >> 4, (int)player.getZ() >> 4);
 
-				//while (y < world.getHeight())
-				while (y < 255)
+
+				while (y < top -2)  // changed from 255
 				{
 		            y++;
 
 		            BlockPos headPos = new BlockPos(x, y+1, z);
 		            if (chunk.getBlockState(headPos).getMaterial().equals(Material.AIR))
 		            {
-		            	//System.out.println("head material: " + chunk.getBlockState(headPos).getBlock() + " at: " + x + " " + y + " " + z);
-		            	
 		                BlockPos legPos = new BlockPos(x, y, z);
 		                if (chunk.getBlockState(legPos).getMaterial().equals(Material.AIR))
 		                {
-		                	//System.out.println("leg material: " + chunk.getBlockState(headPos).getBlock() + " at: " + x + " " + y + " " + z);
-		                	
 		                    BlockPos groundPos = new BlockPos(x, y-1, z);
 		                    if (     (!chunk.getBlockState(groundPos).getBlock().equals(Blocks.LAVA)) &&
 		                    		(chunk.getBlockState(groundPos).getMaterial().equals(Material.STONE) ||
 		                    		chunk.getBlockState(groundPos).getBlock().equals(Blocks.STONE) ||
 		                    		!chunk.getBlockState(legPos).getMaterial().equals(Material.AIR))   )
-		                    {	
-		                    	//System.out.println("ground state: " + chunk.getBlockState(headPos).getBlock() + " at: " + x + " " + y + " " + z);
-		                    	
+		                    {
 		                    	player.stopRiding();
 		                    	player.requestTeleport(x, y, z);
 		    	           		player.fallDistance = 0.0F;
@@ -105,12 +101,12 @@ public class RingAbove extends Item
 			{	
 				//Checking from top of world downward 
 				double x = player.getX();
-				double y = 254;
+				double y = top -2;  // changed
 				double z = player.getZ();
 				
 				Chunk chunk = world.getChunk((int) player.getX() >> 4, (int)player.getZ() >> 4);
 
-				while (y > 3)
+				while (y > bottom + 3) // changed
 				{
 		            y--;
 

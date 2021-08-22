@@ -522,8 +522,7 @@
 	"advancements.gobber2.block_maturator.desc": "Craft a Maturator Block",
 
 	"entity.gobber2.nemesis": "Gobber Nemesis",
-	"entity.gobber2.nemesis_nether": "Gobber Nemesis",
-	"entity.gobber2.nemesis_end": "Gobber Nemesis",
+	"item.gobber2.nemesis_spawn_egg": "Gobber Nemesis Spawn Egg",
 
 	 "itemGroup.gobber2.gobber2_group": "Gobber 2"
 }

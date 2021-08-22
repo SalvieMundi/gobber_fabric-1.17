@@ -62,11 +62,9 @@ public class RingExplorer extends Item
 					{
 						serverPlayer.sendMessage((new TranslatableText("item.gobber2.gobber2_ring_explorer.tip2")), true);   // still checking
 					}
-					
-					//serverPlayer.sendMessage((new TranslatableText("Checking for a safe spot, please wait a moment")), true);
+
 					RegistryKey<World> registryKey = world.getRegistryKey();
-					
-					//if(!(registryKey == World.OVERWORLD || registryKey == Gobber2Dimension.GOBBER_WORLD_KEY || registryKey == Gobber2Dimension.GOBBER_WORLD_KEY2))
+
 					if(!(registryKey == World.OVERWORLD))
 					{
 						serverPlayer.sendMessage((new TranslatableText("item.gobber2.gobber2_ring_explorer.tip3")), true);  //only in overworld
@@ -79,7 +77,7 @@ public class RingExplorer extends Item
 
 					// Use current world spawn x and z for starting point
 					int x = (int) Math.round(worldSpawn.getX()) + rand.nextInt(max + min) - min;
-					int y = 150;
+					int y = serverWorld.getTopY();  // changed from y=150
 					int z = (int) Math.round(worldSpawn.getZ()) + rand.nextInt(max + min) - min;
 
 					Chunk chunk = world.getChunk(x >> 4, z >> 4);
@@ -97,8 +95,10 @@ public class RingExplorer extends Item
 					}
 
 					//Let's avoid putting them underground
-					while (y > 60)
+					while (y > 62)
 			        {
+						serverPlayer.sendMessage((new TranslatableText("item.gobber2.gobber2_ring_explorer.tip2")), true);   // still checking
+
 			            y--;
 			            BlockPos groundPos = new BlockPos(x, y-2, z);
 			            if(!chunk.getBlockState(groundPos).getMaterial().equals(Material.AIR) && 
