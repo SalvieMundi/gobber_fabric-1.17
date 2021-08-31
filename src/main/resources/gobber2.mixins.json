@@ -17,8 +17,7 @@
     "ParrotEntityMixinInteract",
     "EndermanEntityMixin",
     "PlayerEntityMixinSolidFooting",
-    "PlayerEntityMixinArmor",
-    "EntityMixinFreeze"
+    "PlayerEntityMixinArmor"
   ],
   "client": [
   	"ClientPlayerEntityMixinFallFlying"

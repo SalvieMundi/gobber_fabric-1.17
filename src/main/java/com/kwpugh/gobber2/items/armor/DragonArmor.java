@@ -14,6 +14,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -21,11 +22,6 @@ import net.minecraft.world.World;
 
 public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorTickable
 {
-    public DragonArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
-    {
-        super(material, slot, settings);
-    }
-
     static boolean enableDragonAllPerks = Gobber2.CONFIG.GENERAL.enableDragonAllPerks;
     static boolean enableDragonHealthPerks = Gobber2.CONFIG.GENERAL.enableDragonHealthPerks;
     static boolean enableDragonProtectiveEffects = Gobber2.CONFIG.GENERAL.enableDragonProtectiveEffects;
@@ -34,8 +30,13 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     static int gobberDragonArmorHealingPoints = Gobber2.CONFIG.GENERAL.gobberDragonArmorHealingPoints;
     static boolean enableDragonFlight = Gobber2.CONFIG.GENERAL.enableDragonFlight;
 
-    @Override
+    public DragonArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
+    {
+        super(material, slot, settings);
+    }
+
     // Depends on PlayerEntityMixinArmor and ArmorTickable interface
+    @Override
     public void tickArmor(ItemStack stack, PlayerEntity player)
     {
         World world = player.world;
@@ -65,12 +66,12 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
                 {
                     player.fallDistance = 0.0F;
                 }
-            }
-            }
 
-        if (PlayerEquipUtil.isPlayerWearingDragonArmor(player) && enableDragonFlight)
-        {
-            player.getAbilities().allowFlying = true;
+                if (enableDragonFlight)
+                {
+                    player.getAbilities().allowFlying = true;
+                }
+            }
         }
     }
 

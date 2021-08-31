@@ -4,7 +4,8 @@ import com.kwpugh.gobber2.Gobber2;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
+
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 
 /*
@@ -16,7 +17,7 @@ public class Knowledge extends StatusEffect
 	  public Knowledge()
 	  {
 	    super(
-	      StatusEffectType.BENEFICIAL, // whether beneficial or harmful for entities
+				StatusEffectCategory.BENEFICIAL, // whether beneficial or harmful for entities
 	      0x98D982); // color in RGB
 	  }
 	 
