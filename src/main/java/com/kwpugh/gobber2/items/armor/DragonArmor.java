@@ -8,6 +8,8 @@ import com.kwpugh.gobber2.api.ArmorTickable;
 import com.kwpugh.gobber2.util.PlayerEquipUtil;
 
 import com.kwpugh.gobber2.util.PlayerSpecialAbilities;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -104,6 +106,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     }
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
         if(enableDragonAllPerks)
