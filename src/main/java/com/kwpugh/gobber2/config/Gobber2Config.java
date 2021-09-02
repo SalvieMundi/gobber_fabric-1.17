@@ -253,8 +253,8 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableDragonProtectiveEffects = true;
 		public boolean enableDragonNoFallDamage = true;
 		public boolean unbreakableDragonArmor = true;
-		
-       	@Comment("\n"
+
+		@Comment("\n"
     			+"\n"
     			+"\n"
     			+"******************************"
@@ -264,6 +264,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
       	public int gobberArmorEnchantability = 25;
       	public float gobberToughness = 2.5F;
       	public float gobberKnockbackResistance = 0.10F;
+      	public int gobberHeadProtection = 6;
+      	public int gobberChestProtecction = 11;
+      	public int gobberLeggingsProtection = 9;
+      	public int gobberBootsProtection = 6;
        	
        	@Comment("\n"
     			+"\n"
@@ -274,7 +278,11 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
        	public int gobberNetherDurabilityMultiplier = 83;
       	public int gobberNetherArmorEnchantability = 30;
       	public float gobberNetherToughness = 2.75F;
-      	public float gobberNetherKnockbackResistance = 0.10F; 
+      	public float gobberNetherKnockbackResistance = 0.10F;
+		public int netherHeadProtection = 7;
+		public int netherChestProtecction = 12;
+		public int netherLeggingsProtection = 10;
+		public int netherBootsProtection = 7;
        	
        	@Comment("\n"
     			+"\n"
@@ -286,6 +294,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
       	public int gobberEndArmorEnchantability = 30;
       	public float gobberEndToughness = 3.0F;
       	public float gobberEndKnockbackResistance = 0.30F;
+		public int endHeadProtection = 8;
+		public int endChestProtecction = 13;
+		public int endLeggingsProtection = 11;
+		public int endBootsProtection = 8;
 
 		@Comment("\n"
 				+"\n"
@@ -297,6 +309,10 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int gobberDragonArmorEnchantability = 30;
 		public float gobberDragonToughness = 3.0F;
 		public float gobberDragonKnockbackResistance = 1.0F;
+		public int dragonHeadProtection = 8;
+		public int dragonChestProtecction = 13;
+		public int dragonLeggingsProtection = 11;
+		public int dragonBootsProtection = 8;
        	
 		@Comment("\n"
 				+"\n"

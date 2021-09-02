@@ -15,11 +15,14 @@ public class NetherArmorMaterial implements ArmorMaterial
 	private static int enchantability = Gobber2.CONFIG.GENERAL.gobberNetherArmorEnchantability;
 	private static float toughness = Gobber2.CONFIG.GENERAL.gobberNetherToughness;
 	private static float knochback = Gobber2.CONFIG.GENERAL.gobberNetherKnockbackResistance;
-	
+	private static int netherHead = Gobber2.CONFIG.GENERAL.netherHeadProtection;
+	private static int netherChest = Gobber2.CONFIG.GENERAL.netherChestProtecction;
+	private static int netherLeggings = Gobber2.CONFIG.GENERAL.netherLeggingsProtection;
+	private static int netherBoots = Gobber2.CONFIG.GENERAL.netherBootsProtection;
 	
 	private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    private static final int[] PROTECTION_AMOUNT = new int[]{7, 10, 12, 7};
-    
+	private static final int[] PROTECTION_AMOUNT = new int[]{netherHead, netherLeggings, netherChest, netherBoots};
+
 	@Override
 	public int getDurability(EquipmentSlot slot) 
 	{

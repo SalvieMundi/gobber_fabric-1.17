@@ -15,11 +15,15 @@ public class EndArmorMaterial implements ArmorMaterial
 	private static int enchantability = Gobber2.CONFIG.GENERAL.gobberEndArmorEnchantability;
 	private static float toughness = Gobber2.CONFIG.GENERAL.gobberEndToughness;
 	private static float knochback = Gobber2.CONFIG.GENERAL.gobberEndKnockbackResistance;
-	
+	private static int endHead = Gobber2.CONFIG.GENERAL.endHeadProtection;
+	private static int endChest = Gobber2.CONFIG.GENERAL.endChestProtecction;
+	private static int endLeggings = Gobber2.CONFIG.GENERAL.endLeggingsProtection;
+	private static int endBoots= Gobber2.CONFIG.GENERAL.endBootsProtection;
 	
 	private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    private static final int[] PROTECTION_AMOUNT = new int[]{8, 11, 13, 8};
-    
+    //private static final int[] PROTECTION_AMOUNT = new int[]{8, 11, 13, 8};
+	private static final int[] PROTECTION_AMOUNT = new int[]{endHead, endLeggings, endChest, endBoots};
+
 	@Override
 	public int getDurability(EquipmentSlot slot) 
 	{
