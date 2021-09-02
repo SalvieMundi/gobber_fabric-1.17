@@ -27,6 +27,7 @@ public class GobberArmor extends ArmorItem
 	
 	static boolean enableGobberAllPerks = Gobber2.CONFIG.GENERAL.enableGobberAllPerks;
 	static boolean enableGobberHealthPerks = Gobber2.CONFIG.GENERAL.enableGobberHealthPerks;
+	static int gobberHealingPoints = Gobber2.CONFIG.GENERAL.gobberGobberArmorHealingPoints;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -47,15 +48,11 @@ public class GobberArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					System.out.println("Health: " + player.getHealth());
-					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
-					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
-
 					if(enableGobberHealthPerks)
 					{
 						PlayerSpecialAbilities.giveLesserAbsorption(player);
 						PlayerSpecialAbilities.giveSaturationEffect(player);
-						PlayerSpecialAbilities.giveHealing(player, 2);
+						PlayerSpecialAbilities.giveHealing(player, gobberHealingPoints);
 					}
 				}
 	    		

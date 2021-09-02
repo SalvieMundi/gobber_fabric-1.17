@@ -27,6 +27,7 @@ public class NetherArmor extends ArmorItem
 	
 	static boolean enableNetherAllPerks = Gobber2.CONFIG.GENERAL.enableNetherAllPerks;
 	static boolean enableNetherHealthPerks = Gobber2.CONFIG.GENERAL.enableNetherHealthPerks;
+	static int netherHealingPoints = Gobber2.CONFIG.GENERAL.gobberNetherArmorHealingPoints;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -47,15 +48,11 @@ public class NetherArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					System.out.println("Health: " + player.getHealth());
-					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
-					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
-
 					if(enableNetherHealthPerks)
 					{
 						PlayerSpecialAbilities.giveLesserAbsorption(player);
 						PlayerSpecialAbilities.giveSaturationEffect(player);
-						PlayerSpecialAbilities.giveHealing(player, 2);
+						PlayerSpecialAbilities.giveHealing(player, netherHealingPoints);
 					}
 				}	
 	    		

@@ -236,14 +236,20 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  	    		+"\n***********************")	
 		public boolean enableGobberAllPerks = true;
 		public boolean enableGobberHealthPerks = true;
+		public int gobberGobberArmorHealingPoints = 2;
 		public boolean enableNetherAllPerks = true;
 		public boolean enableNetherHealthPerks = true;
+		public int gobberNetherArmorHealingPoints = 2;
 		public boolean enableEndAllPerks = true;
 		public boolean enableEndHealthPerks = true;
+		public int gobberEndArmorHealingPoints = 3;
 		public boolean unbreakableEndArmor = true;
 		public boolean enablePhantomProtection = true;
+		public boolean enableDragonArmorWithoutFlight = true;
+		public boolean enableDragonArmorWithFlight = true;
 		public boolean enableDragonAllPerks = true;
 		public boolean enableDragonHealthPerks = true;
+		public int gobberDragonArmorHealingPoints = 4;
 		public boolean enableDragonProtectiveEffects = true;
 		public boolean enableDragonNoFallDamage = true;
 		public boolean unbreakableDragonArmor = true;
@@ -291,7 +297,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int gobberDragonArmorEnchantability = 30;
 		public float gobberDragonToughness = 3.0F;
 		public float gobberDragonKnockbackResistance = 1.0F;
-		public int gobberDragonArmorHealingPoints = 4;
        	
 		@Comment("\n"
 				+"\n"

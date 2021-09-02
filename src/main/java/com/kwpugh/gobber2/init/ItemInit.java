@@ -1,10 +1,7 @@
 package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
-import com.kwpugh.gobber2.items.armor.DragonArmor;
-import com.kwpugh.gobber2.items.armor.EndArmor;
-import com.kwpugh.gobber2.items.armor.GobberArmor;
-import com.kwpugh.gobber2.items.armor.NetherArmor;
+import com.kwpugh.gobber2.items.armor.*;
 import com.kwpugh.gobber2.items.food.Goo;
 import com.kwpugh.gobber2.items.food.GooeyApple;
 import com.kwpugh.gobber2.items.food.GooeyBeef;
@@ -99,6 +96,9 @@ public class ItemInit
 	static boolean enableMedallionExp = Gobber2.CONFIG.GENERAL.enableMedallionExp;
 	static boolean enableMedallionHero = Gobber2.CONFIG.GENERAL.enableMedallionHero;
 	static boolean enableMedallionSea = Gobber2.CONFIG.GENERAL.enableMedallionSea;
+
+	static boolean enableDragonArmor = Gobber2.CONFIG.GENERAL.enableDragonArmorWithFlight;
+	static boolean enableDragonArmorNoFlight = Gobber2.CONFIG.GENERAL.enableDragonArmorWithoutFlight;
 
 	// Declare material values
 	public static final ArmorMaterial GOBBER_ARMOR_MATERIAL = new GobberArmorMaterial();
@@ -210,10 +210,16 @@ public class ItemInit
 
 	public static final Item DRAGON_ELYTRA = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item DRAGON_STAR = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+
 	public static final Item GOBBER2_HELMET_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_CHESTPLATE_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_LEGGINGS_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_BOOTS_DRAGON = new DragonArmor(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+
+	public static final Item GOBBER2_HELMET_DRAGON_NO_FLIGHT = new DragonArmorNoFlight(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.HEAD, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT = new DragonArmorNoFlight(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_LEGGINGS_DRAGON_NO_FLIGHT = new DragonArmorNoFlight(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.LEGS, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_BOOTS_DRAGON_NO_FLIGHT = new DragonArmorNoFlight(GOBBER_DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_RING_ATTRACTION = new RingAttraction((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_RETURN = new RingReturn((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
@@ -375,10 +381,22 @@ public class ItemInit
 
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "dragon_elytra"), DRAGON_ELYTRA);
 		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "dragon_star"), DRAGON_STAR);
-		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_helmet_dragon"), GOBBER2_HELMET_DRAGON);
-		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_chestplate_dragon"), GOBBER2_CHESTPLATE_DRAGON);
-		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_leggings_dragon"), GOBBER2_LEGGINGS_DRAGON);
-		Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_boots_dragon"), GOBBER2_BOOTS_DRAGON);
+
+		if(enableDragonArmor)
+		{
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_helmet_dragon"), GOBBER2_HELMET_DRAGON);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_chestplate_dragon"), GOBBER2_CHESTPLATE_DRAGON);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_leggings_dragon"), GOBBER2_LEGGINGS_DRAGON);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_boots_dragon"), GOBBER2_BOOTS_DRAGON);
+		}
+
+		if(enableDragonArmorNoFlight)
+		{
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_helmet_dragon_no_flight"), GOBBER2_HELMET_DRAGON_NO_FLIGHT);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_chestplate_dragon_no_flight"), GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_leggings_dragon_no_flight"), GOBBER2_LEGGINGS_DRAGON_NO_FLIGHT);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_boots_dragon_no_flight"), GOBBER2_BOOTS_DRAGON_NO_FLIGHT);
+		}
 
 		if(enableRingAttraction)
 		{

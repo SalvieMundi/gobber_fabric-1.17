@@ -28,6 +28,7 @@ public class EndArmor extends ArmorItem
 	static boolean enableEndAllPerks = Gobber2.CONFIG.GENERAL.enableEndAllPerks;
 	static boolean unbreakableEndArmor = Gobber2.CONFIG.GENERAL.unbreakableEndArmor;
 	static boolean enableEndHealthPerks = Gobber2.CONFIG.GENERAL.enableEndHealthPerks;
+	static int endHealingPoints = Gobber2.CONFIG.GENERAL.gobberEndArmorHealingPoints;
 
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
@@ -48,15 +49,11 @@ public class EndArmor extends ArmorItem
 	      	{
 	    		if(player.age % 180 == 0)
 				{
-					System.out.println("Health: " + player.getHealth());
-					System.out.println("Food: " + player.getHungerManager().getFoodLevel());
-					System.out.println("Sat: " + player.getHungerManager().getSaturationLevel());
-
 					if(enableEndHealthPerks)
 					{
 						PlayerSpecialAbilities.giveGreaterAbsorption(player);
 						PlayerSpecialAbilities.giveSaturationEffect(player);
-						PlayerSpecialAbilities.giveHealing(player, 4);
+						PlayerSpecialAbilities.giveHealing(player, endHealingPoints);
 					}
 				}
 	    		
