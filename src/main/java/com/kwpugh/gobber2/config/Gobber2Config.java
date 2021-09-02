@@ -242,7 +242,6 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public boolean enableEndHealthPerks = true;
 		public boolean unbreakableEndArmor = true;
 		public boolean enablePhantomProtection = true;
-		public boolean enableDragonFlight = true;
 		public boolean enableDragonAllPerks = true;
 		public boolean enableDragonHealthPerks = true;
 		public boolean enableDragonProtectiveEffects = true;

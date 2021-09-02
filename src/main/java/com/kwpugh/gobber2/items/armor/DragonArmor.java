@@ -30,7 +30,6 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
     static boolean enableDragonNoFallDamage = Gobber2.CONFIG.GENERAL.enableDragonNoFallDamage;
     static boolean unbreakableDragonArmor = Gobber2.CONFIG.GENERAL.unbreakableDragonArmor;
     static int gobberDragonArmorHealingPoints = Gobber2.CONFIG.GENERAL.gobberDragonArmorHealingPoints;
-    static boolean enableDragonFlight = Gobber2.CONFIG.GENERAL.enableDragonFlight;
 
     public DragonArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings)
     {
@@ -69,10 +68,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
                     player.fallDistance = 0.0F;
                 }
 
-                if (enableDragonFlight)
-                {
-                    player.getAbilities().allowFlying = true;
-                }
+                player.getAbilities().allowFlying = true;
             }
         }
     }
@@ -129,10 +125,7 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
                 tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip5").formatted(Formatting.GREEN));
             }
 
-            if(enableDragonFlight)
-            {
-                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip6").formatted(Formatting.GREEN));
-            }
+            tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip6").formatted(Formatting.GREEN));
         }
     }
 }
