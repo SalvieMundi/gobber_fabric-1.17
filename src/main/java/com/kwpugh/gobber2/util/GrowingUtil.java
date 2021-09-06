@@ -1,18 +1,6 @@
 package com.kwpugh.gobber2.util;
 
-import net.minecraft.block.BambooSaplingBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CactusBlock;
-import net.minecraft.block.ChorusFlowerBlock;
-import net.minecraft.block.CocoaBlock;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.Fertilizable;
-import net.minecraft.block.FungusBlock;
-import net.minecraft.block.SaplingBlock;
-import net.minecraft.block.StemBlock;
-import net.minecraft.block.SugarCaneBlock;
-import net.minecraft.block.SweetBerryBushBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -69,6 +57,23 @@ public class GrowingUtil
 				{
 					blockToTick.randomTick(blockstate2, (ServerWorld) world, tickTarget, world.random);
 				}				
+			}
+		}
+
+		for (BlockPos tickTarget : BlockPos.iterateOutwards(playerPos, radius, height, radius))
+		{
+			BlockState blockstate2 = world.getBlockState(tickTarget);
+			Block blockToTick = blockstate2.getBlock();
+
+			if(blockToTick instanceof PointedDripstoneBlock)
+			{
+				blockToTick.randomTick(blockstate2, (ServerWorld) world, tickTarget, world.random);
+				PointedDripstoneBlock.dripTick(blockstate2, (ServerWorld) world, tickTarget,.9f);
+
+				if (world.getTime() % (baseTickDelay) == 0)
+				{
+					PointedDripstoneBlock.tryGrow(blockstate2, (ServerWorld) world, tickTarget, world.random);
+				}
 			}
 		}
 	}
