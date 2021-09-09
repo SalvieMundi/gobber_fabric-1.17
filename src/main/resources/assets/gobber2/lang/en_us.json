@@ -256,8 +256,9 @@
 	"item.gobber2.gobber2_ring_above.tip4": "Sneak + right-click to teleport down",
 	"item.gobber2.gobber2_ring_above.tip5": "Does not work in this world",
 	
-	"item.gobber2.gobber2_ring_teleport": "Ring of Teleport",
-	"item.gobber2.gobber2_ring_teleport.tip1": "Teleport to stored locations",
+	"item.gobber2.gobber2_ring_teleport": "Ring of Teleport (Obsolete)",
+	"item.gobber2.gobber2_ring_teleport2": "Ring of Teleport",
+	"item.gobber2.gobber2_ring_teleport.tip1": "Teleport to stored location",
 	"item.gobber2.gobber2_ring_teleport.tip2": "Sneak + right-click on top of a block to set",
 	"item.gobber2.gobber2_ring_teleport.tip3": "Sneak + right-click pointing up in the air to clear",
 	"item.gobber2.gobber2_ring_teleport.tip4": "Right-click to teleport",
@@ -265,6 +266,7 @@
 	"item.gobber2.gobber2_ring_teleport.tip6": "Location has been set to: %s",
 	"item.gobber2.gobber2_ring_teleport.tip7": "Location already set to: %s",
 	"item.gobber2.gobber2_ring_teleport.tip8": "Location cleared.",
+	"item.gobber2.gobber2_ring_teleport.tip9": "Unsupported dimension",
 	
 	"item.gobber2.gobber2_ring_repair": "Ring of Repair",
 	"item.gobber2.gobber2_ring_repair.tip1": "Slowly repairs a single, damaged",

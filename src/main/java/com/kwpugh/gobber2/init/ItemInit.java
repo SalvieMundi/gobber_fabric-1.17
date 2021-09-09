@@ -11,28 +11,7 @@ import com.kwpugh.gobber2.items.fuel.Foo;
 import com.kwpugh.gobber2.items.fuel.FooEnd;
 import com.kwpugh.gobber2.items.medallions.*;
 import com.kwpugh.gobber2.items.other.SpecialItem;
-import com.kwpugh.gobber2.items.rings.RingAbove;
-import com.kwpugh.gobber2.items.rings.RingAirWalking;
-import com.kwpugh.gobber2.items.rings.RingAscent;
-import com.kwpugh.gobber2.items.rings.RingAttraction;
-import com.kwpugh.gobber2.items.rings.RingBlink;
-import com.kwpugh.gobber2.items.rings.RingCuring;
-import com.kwpugh.gobber2.items.rings.RingDismissal;
-import com.kwpugh.gobber2.items.rings.RingEnderchest;
-import com.kwpugh.gobber2.items.rings.RingExplorer;
-import com.kwpugh.gobber2.items.rings.RingFarmer;
-import com.kwpugh.gobber2.items.rings.RingHaste;
-import com.kwpugh.gobber2.items.rings.RingMiner;
-import com.kwpugh.gobber2.items.rings.RingPhoenix;
-import com.kwpugh.gobber2.items.rings.RingRepair;
-import com.kwpugh.gobber2.items.rings.RingReturn;
-import com.kwpugh.gobber2.items.rings.RingStealth;
-import com.kwpugh.gobber2.items.rings.RingSunshine;
-import com.kwpugh.gobber2.items.rings.RingSwiftness;
-import com.kwpugh.gobber2.items.rings.RingTeleport;
-import com.kwpugh.gobber2.items.rings.RingTraveler;
-import com.kwpugh.gobber2.items.rings.RingVision;
-import com.kwpugh.gobber2.items.rings.RingVoid;
+import com.kwpugh.gobber2.items.rings.*;
 import com.kwpugh.gobber2.items.staffs.*;
 //import com.kwpugh.gobber2.items.staffs.StaffEnsnarement;
 import com.kwpugh.gobber2.items.tools.areatools.*;
@@ -242,6 +221,7 @@ public class ItemInit
 	public static final Item GOBBER2_RING_VOID = new RingVoid((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_AIRWALKING = new RingAirWalking((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_TELEPORT = new RingTeleport((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_RING_TELEPORT2 = new RingTeleport2((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_DISMISSAL = new RingDismissal((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_STEALTH = new RingStealth((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_RING_TRAVELER = new RingTraveler((new Item.Settings()).maxCount(1).group(Gobber2.GOBBER2_GROUP));
@@ -491,6 +471,7 @@ public class ItemInit
 		if(enableRingTeleport)
 		{
 			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_ring_teleport"), GOBBER2_RING_TELEPORT);
+			Registry.register(Registry.ITEM, new Identifier(Gobber2.MOD_ID, "gobber2_ring_teleport2"), GOBBER2_RING_TELEPORT2);
 		}
 
 		if(enableRingDismissal)
