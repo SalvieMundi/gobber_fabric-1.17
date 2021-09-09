@@ -248,7 +248,7 @@
 	"item.gobber2.gobber2_ring_explorer.tip6": "Welcome back to the Overworld.",
 	"item.gobber2.gobber2_ring_explorer.tip7": "Please try another spot.",
 	"item.gobber2.gobber2_ring_explorer.tip8": "Still checking, please continue to hold",
-	
+
 	"item.gobber2.gobber2_ring_above": "Ring of Above (Below)",
 	"item.gobber2.gobber2_ring_above.tip1": "Teleports the player to a safe",
 	"item.gobber2.gobber2_ring_above.tip2": "spot farthest above or below",
@@ -265,7 +265,6 @@
 	"item.gobber2.gobber2_ring_teleport.tip6": "Location has been set to: %s",
 	"item.gobber2.gobber2_ring_teleport.tip7": "Location already set to: %s",
 	"item.gobber2.gobber2_ring_teleport.tip8": "Location cleared.",
-	"item.gobber2.gobber2_ring_teleport.tip9": "Unsupported dimension",
 	
 	"item.gobber2.gobber2_ring_repair": "Ring of Repair",
 	"item.gobber2.gobber2_ring_repair.tip1": "Slowly repairs a single, damaged",

@@ -20,11 +20,14 @@ public class GrowingUtil
 
 			if (   (block instanceof CropBlock) ||  //Beets Carrots Potatoes
 					block instanceof BambooSaplingBlock ||
+					block instanceof BambooBlock ||
 					block instanceof CocoaBlock ||
 					block instanceof StemBlock ||
 					block instanceof SweetBerryBushBlock ||
 					block instanceof FungusBlock ||
-					block instanceof SaplingBlock  //all saplings
+					block instanceof SaplingBlock  || //all saplings
+					block instanceof KelpBlock ||
+					block instanceof KelpPlantBlock
 					)
 			{
 				Fertilizable fertilizable = (Fertilizable)blockstate.getBlock();
