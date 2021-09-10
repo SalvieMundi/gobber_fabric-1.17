@@ -37,7 +37,17 @@ public final class PlayerEquipUtil
         			(head.getItem() == ItemInit.GOBBER2_HELMET_END && 
         			chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_END && 
         			legs.getItem() == ItemInit.GOBBER2_LEGGINGS_END && 
-        			feet.getItem() == ItemInit.GOBBER2_BOOTS_END)     )
+        			feet.getItem() == ItemInit.GOBBER2_BOOTS_END)    ||
+
+			        (head.getItem() == ItemInit.GOBBER2_HELMET_DRAGON &&
+					chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON &&
+					legs.getItem() == ItemInit.GOBBER2_LEGGINGS_DRAGON &&
+					feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON)     ||
+
+					(head.getItem() == ItemInit.GOBBER2_HELMET_DRAGON_NO_FLIGHT &&
+					chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT &&
+					legs.getItem() == ItemInit.GOBBER2_LEGGINGS_DRAGON_NO_FLIGHT &&
+					feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON_NO_FLIGHT) )
     	      	{
     	      		return true;  		
     	      	}
@@ -58,7 +68,12 @@ public final class PlayerEquipUtil
 		if(		(head.getItem() == ItemInit.GOBBER2_HELMET_DRAGON &&
 				chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON &&
 				legs.getItem() == ItemInit.GOBBER2_LEGGINGS_DRAGON &&
-				feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON)     )
+				feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON)  ||
+
+				(head.getItem() == ItemInit.GOBBER2_HELMET_DRAGON_NO_FLIGHT &&
+				chest.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT &&
+				legs.getItem() == ItemInit.GOBBER2_LEGGINGS_DRAGON_NO_FLIGHT &&
+				feet.getItem() == ItemInit.GOBBER2_BOOTS_DRAGON_NO_FLIGHT)  )
 		{
 			return true;
 		}
