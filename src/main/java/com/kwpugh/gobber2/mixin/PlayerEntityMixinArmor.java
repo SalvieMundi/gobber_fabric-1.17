@@ -35,20 +35,6 @@ public abstract class PlayerEntityMixinArmor extends LivingEntity
     @Inject(method = "tick", at = @At("HEAD"))
     public void gobberTickArmor(CallbackInfo ci)
     {
-        // Special perk for Kevin, if wanted
-        PlayerEntity self = (PlayerEntity) (Object) this;
-        ItemStack mainHand = self.getMainHandStack();
-        Item offHand = self.getOffHandStack().getItem();
-        UUID kwpugh = UUID.fromString("10d71fA6-B516-452f-9B1C-F2C447D69E60");
-
-        if(self.getUuid().equals(kwpugh) && offHand == Items.DIAMOND)
-        {
-            PlayerSpecialAbilities.giveHealing(self, 5);
-            PlayerSpecialAbilities.giveSaturationEffect(self);
-            PlayerSpecialAbilities.giveGreaterAbsorption(self);
-            PlayerSpecialAbilities.giveCuringEffect(this.world, self);
-        }
-
         // Check if armor has been removed, used with flight function
         int i = 0;
         for (ItemStack stack : getArmorItems())
