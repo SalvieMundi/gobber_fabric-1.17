@@ -128,6 +128,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public int ringBlinkDistance = 100;
  		public int ringBlinkCooldown = 120;
  		public int ringExplorerCooldown = 240;
+ 		public boolean ringExplorerUsePlayerPos = false;
  		public int ringExplorerMin = 5000;
 		public int ringExplorerMax = 20000;
  		public int ringFarmerHorizRange = 12;
@@ -201,6 +202,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     	public int gobberDurability = 3800;
        	public float gobberMiningSpeed = 9.0F;
        	public float gobberAttackDamage = 9.0F;
+       	public float gobberSwordAttackSpeed = 2.0F;
        	public int gobberMiningLevel = 4;
        	public int gobberEnchantability = 20;
        	
@@ -213,6 +215,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     	public int gobberNetherDurability = 5200;
        	public float gobberNetherMiningSpeed = 12.0F;
        	public float gobberNetherAttackDamage = 9.0F;
+       	public float gobberNetherSwordAttackSpeed = 2.2F;
        	public int gobberNetherMiningLevel = 5;
        	public int gobberNetherEnchantability = 25;
 
@@ -226,6 +229,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     	public int gobberEndDurability = 8000;
        	public float gobberEndMiningSpeed = 14.0F;
        	public float gobberEndAttackDamage = 9.0F;
+       	public float gobberEndSwordAttackSpeed = 2.4F;
        	public int gobberEndMiningLevel = 5;
        	public int gobberEndEnchantability = 30;
        	    
@@ -263,7 +267,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
     	public int gobberDurabilityMultiplier = 71;
       	public int gobberArmorEnchantability = 25;
       	public float gobberToughness = 2.5F;
-      	public float gobberKnockbackResistance = 0.10F;
+      	public float gobberKnockbackResistance = 0.0F;
       	public int gobberHeadProtection = 6;
       	public int gobberChestProtecction = 11;
       	public int gobberLeggingsProtection = 9;
@@ -278,7 +282,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
        	public int gobberNetherDurabilityMultiplier = 83;
       	public int gobberNetherArmorEnchantability = 30;
       	public float gobberNetherToughness = 2.75F;
-      	public float gobberNetherKnockbackResistance = 0.10F;
+      	public float gobberNetherKnockbackResistance = 0.1F;
 		public int netherHeadProtection = 7;
 		public int netherChestProtecction = 12;
 		public int netherLeggingsProtection = 10;
@@ -293,7 +297,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
        	public int gobberEndDurabilityMultiplier = 100;
       	public int gobberEndArmorEnchantability = 30;
       	public float gobberEndToughness = 3.0F;
-      	public float gobberEndKnockbackResistance = 0.30F;
+      	public float gobberEndKnockbackResistance = 0.2F;
 		public int endHeadProtection = 8;
 		public int endChestProtecction = 13;
 		public int endLeggingsProtection = 11;
@@ -308,7 +312,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 		public int gobberDragonDurabilityMultiplier = 100;
 		public int gobberDragonArmorEnchantability = 30;
 		public float gobberDragonToughness = 3.0F;
-		public float gobberDragonKnockbackResistance = 1.0F;
+		public float gobberDragonKnockbackResistance = 0.3F;
 		public int dragonHeadProtection = 8;
 		public int dragonChestProtecction = 13;
 		public int dragonLeggingsProtection = 11;
@@ -355,11 +359,13 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
 				+ "\nItem provides a one-time random teleport"
 	            +"\nand is consumed after successful teleport."
 	            +"\nMin/Max range from world spawn to search"
+				+"\nor from the player's current position"
 		    	+"\nItem does NOT have a standard recipe"
 		    	+ "\n***********************") 
 		public boolean enableSpecialItem = true;
 		public int specialItemMin = 20000;
 		public int specialItemMax = 75000;
+		public boolean specialItemUsePlayerPos = false;
 
 		@Comment("\n"
 				+"\n"

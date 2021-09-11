@@ -11,10 +11,10 @@ import net.minecraft.sound.SoundEvents;
 
 public class GobberArmorMaterial implements ArmorMaterial
 {
-	private static int durabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberDurabilityMultiplier;
-	private static int enchantability = Gobber2.CONFIG.GENERAL.gobberArmorEnchantability;
-	private static float toughness = Gobber2.CONFIG.GENERAL.gobberToughness;
-	private static float knochback = Gobber2.CONFIG.GENERAL.gobberKnockbackResistance;
+	private static int gobberDurabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberDurabilityMultiplier;
+	private static int gobberEnchantability = Gobber2.CONFIG.GENERAL.gobberArmorEnchantability;
+	private static float gobberToughness = Gobber2.CONFIG.GENERAL.gobberToughness;
+	private static float gobberKnochback = Gobber2.CONFIG.GENERAL.gobberKnockbackResistance;
 	private static int gobberHead = Gobber2.CONFIG.GENERAL.gobberHeadProtection;
 	private static int gobberChest = Gobber2.CONFIG.GENERAL.gobberChestProtecction;
 	private static int gobberLeggings = Gobber2.CONFIG.GENERAL.gobberLeggingsProtection;
@@ -26,7 +26,7 @@ public class GobberArmorMaterial implements ArmorMaterial
 	@Override
 	public int getDurability(EquipmentSlot slot) 
 	{
-		return BASE_DURABILITY[slot.getEntitySlotId()] * durabilityMultiplier;
+		return BASE_DURABILITY[slot.getEntitySlotId()] * gobberDurabilityMultiplier;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class GobberArmorMaterial implements ArmorMaterial
 	@Override
 	public int getEnchantability()
 	{
-		return enchantability;
+		return gobberEnchantability;
 	}
 
 	@Override
@@ -62,12 +62,12 @@ public class GobberArmorMaterial implements ArmorMaterial
 	@Override
 	public float getToughness()
 	{
-		return toughness;
+		return gobberToughness;
 	}
 
 	@Override
 	public float getKnockbackResistance()
 	{
-		return knochback;
+		return gobberKnochback;
 	}
 }

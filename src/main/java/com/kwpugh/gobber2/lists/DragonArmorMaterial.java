@@ -10,10 +10,10 @@ import net.minecraft.sound.SoundEvents;
 
 public class DragonArmorMaterial implements ArmorMaterial
 {
-    private static int durabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberDragonDurabilityMultiplier;
-    private static int enchantability = Gobber2.CONFIG.GENERAL.gobberDragonArmorEnchantability;
-    private static float toughness = Gobber2.CONFIG.GENERAL.gobberDragonToughness;
-    private static float knochback = Gobber2.CONFIG.GENERAL.gobberDragonKnockbackResistance;
+    private static int dragonDurabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberDragonDurabilityMultiplier;
+    private static int dragonEnchantability = Gobber2.CONFIG.GENERAL.gobberDragonArmorEnchantability;
+    private static float dragonToughness = Gobber2.CONFIG.GENERAL.gobberDragonToughness;
+    private static float dragonKnochback = Gobber2.CONFIG.GENERAL.gobberDragonKnockbackResistance;
     private static int dragonHead = Gobber2.CONFIG.GENERAL.dragonHeadProtection;
     private static int dragonChest = Gobber2.CONFIG.GENERAL.dragonChestProtecction;
     private static int dragonLeggings = Gobber2.CONFIG.GENERAL.dragonLeggingsProtection;
@@ -25,7 +25,7 @@ public class DragonArmorMaterial implements ArmorMaterial
     @Override
     public int getDurability(EquipmentSlot slot)
     {
-        return BASE_DURABILITY[slot.getEntitySlotId()] * durabilityMultiplier;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * dragonDurabilityMultiplier;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class DragonArmorMaterial implements ArmorMaterial
     @Override
     public int getEnchantability()
     {
-        return enchantability;
+        return dragonEnchantability;
     }
 
     @Override
@@ -61,12 +61,12 @@ public class DragonArmorMaterial implements ArmorMaterial
     @Override
     public float getToughness()
     {
-        return toughness;
+        return dragonToughness;
     }
 
     @Override
     public float getKnockbackResistance()
     {
-        return knochback;
+        return dragonKnochback;
     }
 }

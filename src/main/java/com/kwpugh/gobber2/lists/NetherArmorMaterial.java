@@ -11,10 +11,10 @@ import net.minecraft.sound.SoundEvents;
 
 public class NetherArmorMaterial implements ArmorMaterial
 {
-	private static int durabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberNetherDurabilityMultiplier;
-	private static int enchantability = Gobber2.CONFIG.GENERAL.gobberNetherArmorEnchantability;
-	private static float toughness = Gobber2.CONFIG.GENERAL.gobberNetherToughness;
-	private static float knochback = Gobber2.CONFIG.GENERAL.gobberNetherKnockbackResistance;
+	private static int netherDurabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberNetherDurabilityMultiplier;
+	private static int netherEnchantability = Gobber2.CONFIG.GENERAL.gobberNetherArmorEnchantability;
+	private static float netherToughness = Gobber2.CONFIG.GENERAL.gobberNetherToughness;
+	private static float netherKnochback = Gobber2.CONFIG.GENERAL.gobberNetherKnockbackResistance;
 	private static int netherHead = Gobber2.CONFIG.GENERAL.netherHeadProtection;
 	private static int netherChest = Gobber2.CONFIG.GENERAL.netherChestProtecction;
 	private static int netherLeggings = Gobber2.CONFIG.GENERAL.netherLeggingsProtection;
@@ -26,7 +26,7 @@ public class NetherArmorMaterial implements ArmorMaterial
 	@Override
 	public int getDurability(EquipmentSlot slot) 
 	{
-		return BASE_DURABILITY[slot.getEntitySlotId()] * durabilityMultiplier;
+		return BASE_DURABILITY[slot.getEntitySlotId()] * netherDurabilityMultiplier;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class NetherArmorMaterial implements ArmorMaterial
 	@Override
 	public int getEnchantability()
 	{
-		return enchantability;
+		return netherEnchantability;
 	}
 
 	@Override
@@ -62,12 +62,12 @@ public class NetherArmorMaterial implements ArmorMaterial
 	@Override
 	public float getToughness()
 	{
-		return toughness;
+		return netherToughness;
 	}
 
 	@Override
 	public float getKnockbackResistance()
 	{
-		return knochback;
+		return netherKnochback;
 	}
 }

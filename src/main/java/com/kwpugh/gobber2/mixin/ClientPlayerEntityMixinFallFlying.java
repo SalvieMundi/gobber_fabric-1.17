@@ -43,7 +43,8 @@ public abstract class ClientPlayerEntityMixinFallFlying extends AbstractClientPl
   public void gobberTickMovement(CallbackInfo info)
   {
     ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
-    if (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_END && this.checkFallFlying()) 
+    if (   ((itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_END) || (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT)) &&
+            this.checkFallFlying())
     {
       this.networkHandler.sendPacket(new ClientCommandC2SPacket(this, ClientCommandC2SPacket.Mode.START_FALL_FLYING));
     }

@@ -33,7 +33,9 @@ public abstract class LivingEntityMixinGlide extends Entity
     boolean bl = this.getFlag(7);
     LivingEntity livingEntity = (LivingEntity) (Object) this;
     ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
-    if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_END)
+    if (bl && !this.onGround && !this.hasVehicle() &&
+            ( (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_END) ||
+                    (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT)) )
     {
       return true;
     }

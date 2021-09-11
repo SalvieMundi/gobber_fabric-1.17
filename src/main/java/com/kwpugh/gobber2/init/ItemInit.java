@@ -79,6 +79,10 @@ public class ItemInit
 	static boolean enableDragonArmor = Gobber2.CONFIG.GENERAL.enableDragonArmorWithFlight;
 	static boolean enableDragonArmorNoFlight = Gobber2.CONFIG.GENERAL.enableDragonArmorWithoutFlight;
 
+	static float gobberAttackSpeed = Gobber2.CONFIG.GENERAL.gobberSwordAttackSpeed;
+	static float netherAttackSpeed = Gobber2.CONFIG.GENERAL.gobberNetherSwordAttackSpeed;
+	static float endAttackSpeed = Gobber2.CONFIG.GENERAL.gobberEndSwordAttackSpeed;
+
 	// Declare material values
 	public static final ArmorMaterial GOBBER_ARMOR_MATERIAL = new GobberArmorMaterial();
 	public static final ArmorMaterial GOBBER_NETHER_ARMOR_MATERIAL = new NetherArmorMaterial();
@@ -129,10 +133,10 @@ public class ItemInit
 	public static final Item GOBBER2_MEDALLION_NETHER = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_MEDALLION_END = new Item((new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	
-	public static final Item GOBBER2_SWORD = new ModSword(GOBBER_TOOL_MATERIAL, 1, -2.0F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_SWORD_NETHER = new ModSword(GOBBER_NETHER_TOOL_MATERIAL, 3, -1.8F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_SWORD_END = new SwordEnd(GOBBER_END_TOOL_MATERIAL, 6, -1.6F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_SWORD_SNIPER = new SwordEndSniper(GOBBER_END_TOOL_MATERIAL, 6, -1.6F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_SWORD = new ModSword(GOBBER_TOOL_MATERIAL, 1, gobberAttackSpeed - 4.0F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_SWORD_NETHER = new ModSword(GOBBER_NETHER_TOOL_MATERIAL, 3, netherAttackSpeed - 4.0F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_SWORD_END = new SwordEnd(GOBBER_END_TOOL_MATERIAL, 6, endAttackSpeed - 4.0F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_SWORD_SNIPER = new SwordEndSniper(GOBBER_END_TOOL_MATERIAL, 6, endAttackSpeed - 4.0F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 
 	public static final Item GOBBER2_BOW = new ModBow((new Item.Settings()).maxDamage(gobberBowDurability).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_BOW_NETHER = new ModBow((new Item.Settings()).maxDamage(netherBowDurability).group(Gobber2.GOBBER2_GROUP));

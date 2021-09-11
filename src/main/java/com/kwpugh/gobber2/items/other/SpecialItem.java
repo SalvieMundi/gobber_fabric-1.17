@@ -44,7 +44,8 @@ public class SpecialItem extends Item
 	
 	static int min = Gobber2.CONFIG.GENERAL.specialItemMin;
 	static int max = Gobber2.CONFIG.GENERAL.specialItemMax;
-	
+	static boolean usePlayerPos = Gobber2.CONFIG.GENERAL.specialItemUsePlayerPos;
+
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand)
 	{
@@ -76,15 +77,26 @@ public class SpecialItem extends Item
 						serverPlayer.sendMessage((new TranslatableText("Only works in Overworld")), true);
 						return TypedActionResult.success(stack);
 					}
-			
-					ServerWorld serverWorld = (ServerWorld)world;		
-					BlockPos worldSpawn = serverWorld.getSpawnPos();			
+
+					BlockPos startingPos;
+					ServerWorld serverWorld = (ServerWorld)world;
+					BlockPos worldSpawn = serverWorld.getSpawnPos();
+					BlockPos playerPos = player.getBlockPos();
 					Random rand = new Random();
 
+					if(usePlayerPos)
+					{
+						startingPos = playerPos;
+					}
+					else
+					{
+						startingPos = worldSpawn;
+					}
+
 					// Use current world spawn x and z for starting point
-					int x = (int) Math.round(worldSpawn.getX()) + rand.nextInt(max + min) - min;
+					int x = (int) Math.round(startingPos.getX()) + rand.nextInt(max + min) - min;
 					int y = 150;
-					int z = (int) Math.round(worldSpawn.getZ()) + rand.nextInt(max + min) - min;
+					int z = (int) Math.round(startingPos.getZ()) + rand.nextInt(max + min) - min;
 
 					Chunk chunk = world.getChunk(x >> 4, z >> 4);
 					Biome biome = world.getBiome(new BlockPos(x, y, z));

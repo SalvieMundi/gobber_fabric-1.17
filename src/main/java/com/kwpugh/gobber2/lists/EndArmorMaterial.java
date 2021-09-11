@@ -11,23 +11,22 @@ import net.minecraft.sound.SoundEvents;
 
 public class EndArmorMaterial implements ArmorMaterial
 {
-	private static int durabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberEndDurabilityMultiplier;
-	private static int enchantability = Gobber2.CONFIG.GENERAL.gobberEndArmorEnchantability;
-	private static float toughness = Gobber2.CONFIG.GENERAL.gobberEndToughness;
-	private static float knochback = Gobber2.CONFIG.GENERAL.gobberEndKnockbackResistance;
+	private static int endDurabilityMultiplier = Gobber2.CONFIG.GENERAL.gobberEndDurabilityMultiplier;
+	private static int endEnchantability = Gobber2.CONFIG.GENERAL.gobberEndArmorEnchantability;
+	private static float endToughness = Gobber2.CONFIG.GENERAL.gobberEndToughness;
+	private static float endKnochback = Gobber2.CONFIG.GENERAL.gobberEndKnockbackResistance;
 	private static int endHead = Gobber2.CONFIG.GENERAL.endHeadProtection;
 	private static int endChest = Gobber2.CONFIG.GENERAL.endChestProtecction;
 	private static int endLeggings = Gobber2.CONFIG.GENERAL.endLeggingsProtection;
 	private static int endBoots= Gobber2.CONFIG.GENERAL.endBootsProtection;
 	
 	private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    //private static final int[] PROTECTION_AMOUNT = new int[]{8, 11, 13, 8};
 	private static final int[] PROTECTION_AMOUNT = new int[]{endHead, endLeggings, endChest, endBoots};
 
 	@Override
 	public int getDurability(EquipmentSlot slot) 
 	{
-		return BASE_DURABILITY[slot.getEntitySlotId()] * durabilityMultiplier;
+		return BASE_DURABILITY[slot.getEntitySlotId()] * endDurabilityMultiplier;
 	}
 
 	@Override
@@ -39,7 +38,7 @@ public class EndArmorMaterial implements ArmorMaterial
 	@Override
 	public int getEnchantability()
 	{
-		return enchantability;
+		return endEnchantability;
 	}
 
 	@Override
@@ -63,12 +62,12 @@ public class EndArmorMaterial implements ArmorMaterial
 	@Override
 	public float getToughness()
 	{
-		return toughness;
+		return endToughness;
 	}
 
 	@Override
 	public float getKnockbackResistance()
 	{
-		return knochback;
+		return endKnochback;
 	}
 }
