@@ -53,6 +53,7 @@ public class DragonArmorNoFlight extends ArmorItem implements ArmorRemoveHandler
                         PlayerSpecialAbilities.giveGreaterAbsorption(player);
                         PlayerSpecialAbilities.giveSaturationEffect(player);
                         PlayerSpecialAbilities.giveHealing(player, gobberDragonArmorHealingPoints);
+                        PlayerSpecialAbilities.giveCuringEffect(world, player);
                     }
                 }
 
@@ -60,7 +61,6 @@ public class DragonArmorNoFlight extends ArmorItem implements ArmorRemoveHandler
                 {
                     PlayerSpecialAbilities.giveWaterBreathing(player);
                     PlayerSpecialAbilities.givePhoenixEffect(world, player);
-                    PlayerSpecialAbilities.giveCuringEffect(world, player);
                 }
 
                 if(enableDragonNoFallDamage)
