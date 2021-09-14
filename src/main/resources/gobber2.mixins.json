@@ -18,7 +18,9 @@
     "EndermanEntityMixin",
     "PlayerEntityMixinSolidFooting",
     "PlayerEntityMixinArmor",
-    "ArmorItemMixinKnockback"
+    "ArmorItemMixinKnockback",
+    "EntityAttributeMixinArmor",
+    "ClampedEntityAttributeMixin"
   ],
   "client": [
   	"ClientPlayerEntityMixinFallFlying"

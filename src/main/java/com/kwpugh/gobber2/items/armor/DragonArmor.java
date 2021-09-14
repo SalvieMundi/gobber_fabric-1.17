@@ -112,11 +112,11 @@ public class DragonArmor extends ArmorItem implements ArmorRemoveHandler, ArmorT
             if(enableDragonProtectiveEffects)
             {
                 tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip2").formatted(Formatting.GREEN));
-                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip3").formatted(Formatting.GREEN));
             }
 
             if(enableDragonHealthPerks)
             {
+                tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip3").formatted(Formatting.GREEN));
                 tooltip.add(new TranslatableText("item.gobber2.gobber2_armor_dragon.tip4").formatted(Formatting.GREEN));
             }
 

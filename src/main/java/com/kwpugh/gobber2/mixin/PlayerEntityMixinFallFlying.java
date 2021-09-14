@@ -34,7 +34,7 @@ public abstract class PlayerEntityMixinFallFlying extends LivingEntity
     if (!this.onGround && !this.isFallFlying() && !this.isTouchingWater() && !this.hasStatusEffect(StatusEffects.LEVITATION))
     {
       ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
-      if (itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_END) ||  (itemStack.getItem() == ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT))
+      if (itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_END) ||  itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT))
       {
         this.startFallFlying();
         info.setReturnValue(true);
