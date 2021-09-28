@@ -21,7 +21,7 @@ public class EntityInit
 
     static
     {
-        NEMESIS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Gobber2.MOD_ID, "nemesis"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, NemesisEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build());
+        NEMESIS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Gobber2.MOD_ID, "nemesis"), FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, NemesisEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build());
     }
 
     public static final SpawnEggItem NEMESIS_SPAWN_EGG = new SpawnEggItem(NEMESIS, 2243405, 7375001, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));

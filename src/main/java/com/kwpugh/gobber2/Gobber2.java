@@ -11,6 +11,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.attribute.ClampedEntityAttribute;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -26,17 +27,23 @@ public class Gobber2 implements ModInitializer
 
     @Override
     public void onInitialize()
-    { 
-    	TagInit.registerTags();
-    	BlockInit.registerBlocks();
-    	BlockInit.registerBlockItems();
-    	BlockInit.registerBlockEntities();
-    	ItemInit.registerItems();
+    {
+		if(FabricLoader.getInstance().isModLoaded("polymc"))
+		{
+			System.out.println("PolyMc found, not supported");
+			return;
+		}
+
+		TagInit.registerTags();
+		BlockInit.registerBlocks();
+		BlockInit.registerBlockItems();
+		BlockInit.registerBlockEntities();
+		ItemInit.registerItems();
 		OreGen.Features();
-    	FuelInit.registerFuels();;
-    	EnchantmentInit.registerEnchantments();
-    	EffectsInit.registerEffects();
-    	LootTableInit.registerLoot();
+		FuelInit.registerFuels();;
+		EnchantmentInit.registerEnchantments();
+		EffectsInit.registerEffects();
+		LootTableInit.registerLoot();
 		EntityInit.init();
     }
 }

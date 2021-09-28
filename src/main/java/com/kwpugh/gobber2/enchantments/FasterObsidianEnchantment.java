@@ -7,6 +7,7 @@ import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.MiningToolItem;
 
 public class FasterObsidianEnchantment extends Enchantment
 {
@@ -60,6 +61,11 @@ public class FasterObsidianEnchantment extends Enchantment
 	public boolean isAcceptableItem(ItemStack stack)
 	{
 		Item pickaxe = stack.getItem();
+
+		if(pickaxe instanceof MiningToolItem)
+		{
+			return this.type.isAcceptableItem(stack.getItem());
+		}
 
 		if(pickaxe == ItemInit.GOBBER2_PICKAXE ||
 				pickaxe == ItemInit.GOBBER2_PICKAXE_NETHER ||

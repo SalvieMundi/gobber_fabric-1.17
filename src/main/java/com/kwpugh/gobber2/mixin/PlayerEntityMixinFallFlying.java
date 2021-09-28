@@ -22,26 +22,25 @@ import net.minecraft.world.World;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixinFallFlying extends LivingEntity 
 {
+   public PlayerEntityMixinFallFlying(EntityType<? extends LivingEntity> entityType, World world)
+   {
+      super(entityType, world);
+   }
 
-  public PlayerEntityMixinFallFlying(EntityType<? extends LivingEntity> entityType, World world) 
-  {
-    super(entityType, world);
-  }
-
-  @Inject(method = "checkFallFlying", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/entity/player/PlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"), cancellable = true)
-  public void gobberCheckFallFlying(CallbackInfoReturnable<Boolean> info)
-  {
-    if (!this.onGround && !this.isFallFlying() && !this.isTouchingWater() && !this.hasStatusEffect(StatusEffects.LEVITATION))
-    {
-      ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
-      if (itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_END) ||  itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT))
+   @Inject(method = "checkFallFlying", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/entity/player/PlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"), cancellable = true)
+   public void gobberCheckFallFlying(CallbackInfoReturnable<Boolean> info)
+   {
+      if (!this.onGround && !this.isFallFlying() && !this.isTouchingWater() && !this.hasStatusEffect(StatusEffects.LEVITATION))
       {
-        this.startFallFlying();
-        info.setReturnValue(true);
+        ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
+        if (itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_END) ||  itemStack.isOf(ItemInit.GOBBER2_CHESTPLATE_DRAGON_NO_FLIGHT))
+        {
+           this.startFallFlying();
+           info.setReturnValue(true);
+        }
       }
-    }
-  }
+   }
 
-  @Shadow
-  public void startFallFlying() {}
+    @Shadow
+    public void startFallFlying() {}
 }

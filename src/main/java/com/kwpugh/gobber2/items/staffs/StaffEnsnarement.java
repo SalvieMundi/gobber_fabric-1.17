@@ -1,7 +1,6 @@
 package com.kwpugh.gobber2.items.staffs;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.kwpugh.gobber2.Gobber2;
 
@@ -9,33 +8,24 @@ import com.kwpugh.gobber2.util.EnsnarementUtil;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.DonkeyEntity;
 import net.minecraft.entity.passive.GolemEntity;
-import net.minecraft.entity.passive.HorseEntity;
-import net.minecraft.entity.passive.LlamaEntity;
-import net.minecraft.entity.passive.MuleEntity;
-import net.minecraft.entity.passive.RabbitEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.passive.WanderingTraderEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 /*
@@ -62,7 +52,7 @@ public class StaffEnsnarement extends Item
     	{
 	       	 if((enableHostileUse) && (stack.getOrCreateNbt().isEmpty()) &&
 	    			 (entity instanceof HostileEntity) && !(entity instanceof WitherEntity))
-	    	 {
+			{
 	       		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
 	       		 {
 	       			 player.setStackInHand(hand, stack);
@@ -76,7 +66,7 @@ public class StaffEnsnarement extends Item
 							entity instanceof GolemEntity ||
 							entity instanceof VillagerEntity) ||
 					entity instanceof WanderingTraderEntity)
-        	 {
+			{
            		 if(EnsnarementUtil.saveEntityToStack(entity, stack))
            		 {
            			 player.setStackInHand(hand, stack);

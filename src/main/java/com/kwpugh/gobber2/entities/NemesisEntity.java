@@ -2,7 +2,8 @@ package com.kwpugh.gobber2.entities;
 
 import com.kwpugh.gobber2.Gobber2;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
+
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
@@ -41,6 +42,6 @@ public class NemesisEntity extends HostileEntity
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, false));
         this.targetSelector.add(1, (new RevengeGoal(this, new Class[0])).setGroupRevenge(new Class[0]));
-        this.targetSelector.add(2, new FollowTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal(this, PlayerEntity.class, true));
     }
 }

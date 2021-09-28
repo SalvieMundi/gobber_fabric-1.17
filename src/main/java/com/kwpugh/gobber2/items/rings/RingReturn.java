@@ -62,8 +62,7 @@ public class RingReturn extends Item
 		{
 			ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
 			ServerWorld serverWorld = (ServerWorld) world;
-		
-			//if(registryKey == World.OVERWORLD  || registryKey == Gobber2Dimension.GOBBER_WORLD_KEY)
+
 			if(registryKey == World.OVERWORLD)
 			{
 				if(serverWorld.getSpawnPos() != null) //world spawn location not null
