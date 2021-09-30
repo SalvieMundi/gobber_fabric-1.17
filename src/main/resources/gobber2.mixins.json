@@ -20,8 +20,7 @@
     "PlayerEntityMixinArmor",
     "ArmorItemMixinKnockback",
     "EntityAttributeMixinArmor",
-    "ClampedEntityAttributeMixin",
-    "MiningToolItemMixin"
+    "ClampedEntityAttributeMixin"
   ],
   "client": [
   	"ClientPlayerEntityMixinFallFlying"
