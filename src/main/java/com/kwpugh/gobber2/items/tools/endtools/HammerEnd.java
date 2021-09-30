@@ -4,10 +4,12 @@ import java.util.List;
 
 import com.kwpugh.gobber2.Gobber2;
 
+import com.kwpugh.gobber2.items.tools.areatools.ObsidianBreaking;
 import com.kwpugh.pugh_tools.Tools.AreaUtil;
 import com.kwpugh.pugh_tools.Tools.Hammer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.Material;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -123,6 +125,19 @@ public class HammerEnd extends Hammer
         {
             stack.getOrCreateNbt().putBoolean("Unbreakable", true);
         }
+    }
+
+    @Override
+    public float getMiningSpeedMultiplier(ItemStack stack, BlockState state)
+    {
+        Material material = state.getMaterial();
+
+        if(ObsidianBreaking.fastAtObsidian(state, stack))
+        {
+            return ObsidianBreaking.fastObsidianSpeed();
+        }
+
+        return material != Material.METAL && material != Material.REPAIR_STATION && material != Material.STONE ? super.getMiningSpeedMultiplier(stack, state) : this.miningSpeed;
     }
 
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
