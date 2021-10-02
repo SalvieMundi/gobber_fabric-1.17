@@ -163,9 +163,9 @@ public class PlayerSpecialAbilities
 		if(player.isOnFire() ||
 				player.isInLava())
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 8, 0, false, false);
-			StatusEffectInstance effect2 = new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 8, 0, false, false);
-			StatusEffectInstance effect3 = new StatusEffectInstance(StatusEffects.SATURATION, 8, 0, false, false);
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
+			StatusEffectInstance effect2 = new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
+			StatusEffectInstance effect3 = new StatusEffectInstance(StatusEffects.SATURATION, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
 			
 			{
 				player.addStatusEffect(effect);
@@ -179,7 +179,7 @@ public class PlayerSpecialAbilities
 	{
 		if(player.isSubmergedInWater() || !waterCheck)
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.WATER_BREATHING, 8, 0, false, false);
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.WATER_BREATHING, Gobber2.CONFIG.GENERAL.effectDuration, 0, false, false);
 			
 			{
 				player.addStatusEffect(effect);
@@ -205,7 +205,7 @@ public class PlayerSpecialAbilities
 
 		if(offHand.getItem() == ItemInit.GOBBER2_MEDALLION_EXP)
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, 120, 0, true, true);
+			StatusEffectInstance effect = new StatusEffectInstance(EffectsInit.KNOWLEDGE, Gobber2.CONFIG.GENERAL.effectDurationKnowledge, 0, true, true);
 			player.addStatusEffect(effect);
 		}
 	}

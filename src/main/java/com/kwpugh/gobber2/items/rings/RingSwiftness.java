@@ -2,6 +2,7 @@ package com.kwpugh.gobber2.items.rings;
 
 import java.util.List;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.EnableUtil;
 
 import net.minecraft.client.item.TooltipContext;
@@ -31,7 +32,7 @@ public class RingSwiftness extends Item
 	{
 		if(EnableUtil.isEnabled(stack))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SPEED, 8, 1, false, false);
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.SPEED, Gobber2.CONFIG.GENERAL.effectDuration, 1, false, false);
 			LivingEntity player = (LivingEntity) entity;
 			{
 				player.addStatusEffect(effect);

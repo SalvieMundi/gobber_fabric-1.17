@@ -142,7 +142,18 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public double ringDismissalLift = 1.5D;
  		public double ringTravelerLaunch = 4.0;
  		public double ringTravelerCruising = 0.2;
- 		
+
+		@Comment("\n"
+				+"\n"
+				+ "***********************"
+				+"\nEffect Setting"
+				+"\n-used with optimization mods"
+				+"\nthat break things"
+				+"\nValue of 300 works"
+				+"\n***********************")
+		public int effectDuration = 8;
+		public int effectDurationKnowledge = 120;
+
  		 @Comment("\n"
  				+"\n"
  				+ "***********************"

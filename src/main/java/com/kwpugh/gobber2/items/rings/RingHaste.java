@@ -2,6 +2,7 @@ package com.kwpugh.gobber2.items.rings;
 
 import java.util.List;
 
+import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.util.EnableUtil;
 
 import net.minecraft.client.item.TooltipContext;
@@ -35,7 +36,7 @@ public class RingHaste extends Item
 		
 		if(EnableUtil.isEnabled(stack))
 		{
-			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.HASTE, 8, 2, false, false);
+			StatusEffectInstance effect = new StatusEffectInstance(StatusEffects.HASTE, Gobber2.CONFIG.GENERAL.effectDuration, 2, false, false);
 						
 			{
 				player.addStatusEffect(effect);
