@@ -18,9 +18,6 @@ import net.minecraft.world.World;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixinGlide extends Entity 
 {
-  @Shadow
-  protected int roll;
-
   public LivingEntityMixinGlide(EntityType<?> type, World world)
   {
     super(type, world);
