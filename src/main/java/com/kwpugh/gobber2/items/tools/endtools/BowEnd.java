@@ -34,6 +34,8 @@ public class BowEnd extends BowItem
 	@Override
 	public void onCraft(ItemStack stack, World world, PlayerEntity player) 
 	{
+		if(world.isClient) return;
+
 		if(unbreakable)
 		{
 			stack.getOrCreateNbt().putBoolean("Unbreakable", true);

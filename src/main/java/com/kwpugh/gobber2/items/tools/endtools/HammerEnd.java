@@ -121,6 +121,8 @@ public class HammerEnd extends Hammer
         stack.getOrCreateNbt().putInt("radius", 1);
         stack.getOrCreateNbt().putString("radiusText", "3x3");
 
+        if(world.isClient) return;
+
         if(unbreakable)
         {
             stack.getOrCreateNbt().putBoolean("Unbreakable", true);

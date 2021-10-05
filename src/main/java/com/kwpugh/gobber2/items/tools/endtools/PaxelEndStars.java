@@ -254,6 +254,8 @@ public class PaxelEndStars extends Paxel
     @Override
     public void onCraft(ItemStack stack, World world, PlayerEntity player)
     {
+        if(world.isClient) return;
+
         stack.getOrCreateNbt().putBoolean("Unbreakable", true);
     }
 

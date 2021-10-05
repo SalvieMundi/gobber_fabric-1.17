@@ -20,6 +20,8 @@ public class AxeEnd extends AxeItem
 	@Override
 	public void onCraft(ItemStack stack, World world, PlayerEntity player) 
 	{
+		if(world.isClient) return;
+
 		if(unbreakable)
 		{
 			stack.getOrCreateNbt().putBoolean("Unbreakable", true);
