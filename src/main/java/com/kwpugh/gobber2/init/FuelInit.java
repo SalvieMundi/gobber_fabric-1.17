@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 public class FuelInit 
 {
-	public static void registerFuels() 
+	public static void registerFuels()
 	{
 		FuelRegistry registry = FuelRegistry.INSTANCE;
 
