@@ -40,7 +40,6 @@ public abstract class ExperienceOrbEntityMixin extends Entity
 			if (offHand.getItem() == ItemInit.GOBBER2_MEDALLION_EXP) 
 			{
 				this.amount = this.amount * multiplier;
-				this.discard();
 			}			
 		}
 	}
