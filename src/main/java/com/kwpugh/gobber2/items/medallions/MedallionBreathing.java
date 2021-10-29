@@ -24,8 +24,10 @@ public class MedallionBreathing extends Item
 	@Override
 	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected)
 	{
+		if(world.isClient) return;
+
 		PlayerEntity player = (PlayerEntity) entity;
-		
+
 		PlayerSpecialAbilities.giveWaterBreathing(player);
 	}
 	

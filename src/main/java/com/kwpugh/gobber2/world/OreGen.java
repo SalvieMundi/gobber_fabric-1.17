@@ -30,7 +30,7 @@ public class OreGen
 					BlockInit.GOBBER2_ORE.getDefaultState(),
 					CONFIG.gobberVeinSize)) // Vein size
 			.range(new RangeDecoratorConfig(
-					UniformHeightProvider.create(YOffset.aboveBottom(5), YOffset.fixed(CONFIG.gobberMaxLevel)))) // Inclusive min and max height
+					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.gobberMaxLevel)))) // Inclusive min and max height
 			.spreadHorizontally()
 			.repeat(CONFIG.gobberPerChunk); // Number of veins per chunk
 
@@ -40,7 +40,7 @@ public class OreGen
 					BlockInit.GOBBER2_LUCKY_BLOCK.getDefaultState(),
 					CONFIG.luckyVeinSize)) // vein size
 			.range(new RangeDecoratorConfig(
-					UniformHeightProvider.create(YOffset.aboveBottom(5), YOffset.fixed(CONFIG.luckyMaxLevel))))
+					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.luckyMaxLevel))))
 			.spreadHorizontally()
 			.repeat(CONFIG.luckyPerChunk); // number of veins per chunk
 
@@ -49,7 +49,7 @@ public class OreGen
 					OreFeatureConfig.Rules.BASE_STONE_NETHER,
 					BlockInit.GOBBER2_ORE_NETHER.getDefaultState(),
 					CONFIG.netherGobberVeinSize)) // vein size
-			.uniformRange(YOffset.getBottom(), YOffset.fixed(CONFIG.netherGobberMaxLevel))
+			.uniformRange(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.netherGobberMaxLevel))
 			.spreadHorizontally()
 			.repeat(CONFIG.netherGobberPerChunk); // number of veins per chunk
 
@@ -58,7 +58,7 @@ public class OreGen
 					new BlockMatchRuleTest(Blocks.END_STONE), // base block is endstone in the end biomes
 					BlockInit.GOBBER2_ORE_END.getDefaultState(),
 					CONFIG.endGobberVeinSize))
-			.uniformRange(YOffset.getBottom(), YOffset.fixed(CONFIG.endGobberMaxLevel))
+			.uniformRange(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.endGobberMaxLevel))
 			.spreadHorizontally()
 			.repeat(CONFIG.endGobberPerChunk);
 
