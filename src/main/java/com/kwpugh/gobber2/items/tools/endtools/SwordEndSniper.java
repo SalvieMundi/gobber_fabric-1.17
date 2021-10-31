@@ -5,6 +5,8 @@ import java.util.List;
 import com.kwpugh.gobber2.Gobber2;
 
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity.PickupPermission;
@@ -50,6 +52,12 @@ public class SwordEndSniper extends SwordItem implements Wearable
             float arrowVelocity = 60.0F;
             persistentProjectileEntity.setProperties(player, player.getPitch(), player.getYaw(), 0.0F, arrowVelocity, 0.0F);
             persistentProjectileEntity.setDamage(1);
+
+			if (EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, stack) > 0)
+			{
+				persistentProjectileEntity.setOnFireFor(100);
+			}
+
             world.spawnEntity(persistentProjectileEntity);
             persistentProjectileEntity.pickupType = PickupPermission.DISALLOWED;
         }
