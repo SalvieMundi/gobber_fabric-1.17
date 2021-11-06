@@ -53,8 +53,23 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  	    public int luckyVeinSize = 4;
      	public int luckyMaxLevel = 120;
      	public int luckyPerChunk = 15;
+
+		@Comment("\n"
+				+ "\n"
+				+ "***********************"
+				+ "\nLucky Block - Drops"
+				+ "\n- only use values between .01 to .99"
+				+ "\n- values cannot overlap"
+				+ "\n- values should be in decending order from"
+				+ "\ncutoff, common, uncommon, and rare"
+				+ "\n- values above cutoff threshold get nothing"
+				+ "\n***********************")
 		public boolean enableExtraLoot = false;
 		public boolean enableFortune = false;
+		public double cutoffThreshold = .20;
+		public double commonThreshold = .10;
+		public double uncommonThreshold = .04;
+		public double rareThreshold = .01;
     }
     
     @Config(name = "general")

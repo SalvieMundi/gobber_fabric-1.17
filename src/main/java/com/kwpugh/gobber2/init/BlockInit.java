@@ -2,10 +2,7 @@ package com.kwpugh.gobber2.init;
 
 import com.kwpugh.gobber2.Gobber2;
 import com.kwpugh.gobber2.blocks.*;
-
-
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
@@ -15,20 +12,20 @@ import net.minecraft.util.registry.Registry;
 
 public class BlockInit
 {
-	public static final Block GOBBER2_LUCKY_BLOCK = new LuckyBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_LUCKY_BLOCK = new LuckyBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
-	public static final Block GOBBER2_ORE = new OreGobber(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_ORE_NETHER = new OreNether(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 4).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_ORE_END = new OreEnd(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 5).requiresTool().strength(2.0F, 2.0F));
-	
-	public static final Block GOBBER2_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_BLOCK_NETHER = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_BLOCK_END = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_ORE = new OreGobber(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_ORE_NETHER = new OreNether(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_ORE_END = new OreEnd(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
 
-	public static final Block GOBBER2_GLASS = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_GLASS_NETHER = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
-	public static final Block GOBBER2_GLASS_END = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
-	public static final Block CLEAR_GLASS = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK_NETHER = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_BLOCK_END = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(2.0F, 2.0F));
+
+	public static final Block GOBBER2_GLASS = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_GLASS_NETHER = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));
+	public static final Block GOBBER2_GLASS_END = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));
+	public static final Block CLEAR_GLASS = new ModGlass(FabricBlockSettings.of(Material.STONE).luminance(15).nonOpaque().requiresTool().strength(2.0F, 2.0F));
 
 	public static void registerBlocks()
 	{

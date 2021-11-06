@@ -59,40 +59,39 @@ public class LuckyBlock  extends OreBlock
 				tries = 1;
 			}			
 		}
-	
+
 		if(enableExtraLoot)
-		{			
+		{
 			for(int i = 1; i < (tries + 1); i++)
 			{
 				Random random = new Random();
 				double r = random.nextDouble();  //generate a random double between 0 and 1
 
-				if(r >= .20)  // nothing above .20
+				if(r >= Gobber2.CONFIG.ORES.cutoffThreshold)  // cutoff threshold
 				{
-					// No Op
+					// no drops
 				}
-				else if(r >= .10 && r < .20) // Common
+				else if(r >= Gobber2.CONFIG.ORES.commonThreshold) // Common
 				{
 					ItemStack stack = TagInit.COMMON_LOOT.getRandom(random).getDefaultStack();
-					dropStack(world, pos, stack); 
-
+					dropStack(world, pos, stack);
 				}
-				else if(r >= .04 && r < .10)  //Uncommon
+				else if(r >= Gobber2.CONFIG.ORES.uncommonThreshold)  //Uncommon
 				{
 					ItemStack stack = TagInit.UNCOOMMON_LOOT.getRandom(random).getDefaultStack();
-					dropStack(world, pos, stack); 
+					dropStack(world, pos, stack);
 				}
-				else if(r >= .01 && r < .04)  //Rare
+				else if(r >= Gobber2.CONFIG.ORES.rareThreshold)  //Rare
 				{
 					ItemStack stack = TagInit.RARE_LOOT.getRandom(random).getDefaultStack();
-					dropStack(world, pos, stack); 
+					dropStack(world, pos, stack);
 				}
-				else if(r < .01)  //Very Rare
+				else
 				{
 					ItemStack stack = TagInit.VERY_RARE_LOOT.getRandom(random).getDefaultStack();
-					dropStack(world, pos, stack); 
-				}	
-			}			
+					dropStack(world, pos, stack);
+				}
+			}
 		}
 	}
 	
@@ -101,5 +100,4 @@ public class LuckyBlock  extends OreBlock
 	{
 		tooltip.add(new TranslatableText("item.gobber2.gobber2_lucky_block.tip1").formatted(Formatting.YELLOW));
 	}
-	  
 }
