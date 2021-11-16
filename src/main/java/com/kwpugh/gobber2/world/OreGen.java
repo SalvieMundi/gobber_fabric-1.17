@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -26,21 +27,21 @@ public class OreGen
 
 	public static ConfiguredFeature<?, ?> ORE_GOBBER_OVERWORLD = Feature.ORE
 			.configure(new OreFeatureConfig(
-					OreFeatureConfig.Rules.STONE_ORE_REPLACEABLES,
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
 					BlockInit.GOBBER2_ORE.getDefaultState(),
 					CONFIG.gobberVeinSize)) // Vein size
 			.range(new RangeDecoratorConfig(
-					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.gobberMaxLevel)))) // Inclusive min and max height
+					UniformHeightProvider.create(YOffset.getBottom(), YOffset.aboveBottom(CONFIG.gobberMaxLevel)))) // Inclusive min and max height
 			.spreadHorizontally()
 			.repeat(CONFIG.gobberPerChunk); // Number of veins per chunk
 
 	public static ConfiguredFeature<?, ?> ORE_LUCKY_BLOCK_OVERWORLD = Feature.ORE
 			.configure(new OreFeatureConfig(
-					OreFeatureConfig.Rules.STONE_ORE_REPLACEABLES,
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
 					BlockInit.GOBBER2_LUCKY_BLOCK.getDefaultState(),
 					CONFIG.luckyVeinSize)) // vein size
 			.range(new RangeDecoratorConfig(
-					UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.luckyMaxLevel))))
+					UniformHeightProvider.create(YOffset.getBottom(), YOffset.aboveBottom(CONFIG.luckyMaxLevel))))
 			.spreadHorizontally()
 			.repeat(CONFIG.luckyPerChunk); // number of veins per chunk
 
