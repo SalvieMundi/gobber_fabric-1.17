@@ -142,6 +142,7 @@ public class Gobber2Config extends PartitioningSerializer.GlobalData
  		public boolean ringMinerDelayedBreak = false;
  		public int ringBlinkDistance = 100;
  		public int ringBlinkCooldown = 120;
+ 		public int ringCuringCooldown = 120;
  		public int ringExplorerCooldown = 240;
  		public boolean ringExplorerUsePlayerPos = false;
  		public int ringExplorerMin = 5000;

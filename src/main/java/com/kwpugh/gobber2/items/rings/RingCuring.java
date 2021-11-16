@@ -1,9 +1,11 @@
 package com.kwpugh.gobber2.items.rings;
 
-import java.util.List;
-
+import com.kwpugh.gobber2.Gobber2;
+import com.kwpugh.gobber2.init.EnchantmentInit;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -14,6 +16,8 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class RingCuring extends Item
 {
@@ -86,6 +90,11 @@ public class RingCuring extends Item
 			}
 		}
 
+		if( !(EnchantmentHelper.getLevel(EnchantmentInit.QUICKUSE, player.getEquippedStack(EquipmentSlot.MAINHAND)) > 0) )
+		{
+			player.getItemCooldownManager().set(this, Gobber2.CONFIG.GENERAL.ringCuringCooldown);
+		}
+
 		return TypedActionResult.success(stack);
 	}
 
@@ -93,6 +102,6 @@ public class RingCuring extends Item
 	public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
 	{
 		tooltip.add(new TranslatableText("item.gobber2.gobber2_ring_curing.tip1").formatted(Formatting.GREEN));
-		tooltip.add(new TranslatableText("item.gobber2.right_click").formatted(Formatting.YELLOW));
+		tooltip.add(new TranslatableText("item.gobber2.right_click_activate").formatted(Formatting.YELLOW));
 	}
 }
