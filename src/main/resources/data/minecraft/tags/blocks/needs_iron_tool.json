@@ -1,7 +1,13 @@
 {
   "replace": false,
   "values": [
-    "gobber2:gobber2_lucky_block",
-    "gobber2:clear_glass"
+    {
+      "id": "gobber2:gobber2_lucky_block",
+      "required": false
+    },
+    {
+      "id": "gobber2:clear_glass",
+      "required": false
+    }
   ]
 }

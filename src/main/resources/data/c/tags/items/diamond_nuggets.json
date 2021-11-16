@@ -1,6 +1,9 @@
 {
    "replace": false,
    "values": [
-	"gobber2:diamond_nugget"
+     {
+       "id": "gobber2:diamond_nugget",
+       "required": false
+     }
    ]
  } 
