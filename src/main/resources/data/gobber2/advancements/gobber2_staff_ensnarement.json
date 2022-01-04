@@ -1,5 +1,5 @@
 {
-  "parent": "gobber2:gobber2_staff_transformation",
+  "parent": "gobber2:gobber2_ring",
   "display": {
     "icon": {
       "item": "gobber2:gobber2_staff_ensnarement"

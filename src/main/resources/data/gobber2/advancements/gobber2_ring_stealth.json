@@ -1,5 +1,5 @@
 {
-  "parent": "gobber2:gobber2_ring_teleport",
+  "parent": "gobber2:gobber2_ring",
   "display": {
     "icon": {
       "item": "gobber2:gobber2_ring_stealth"

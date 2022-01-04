@@ -6,6 +6,7 @@ import com.kwpugh.gobber2.init.BlockInit;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys;
 import net.minecraft.block.Blocks;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
@@ -13,6 +14,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -47,7 +49,7 @@ public class OreGen
 
 	public static ConfiguredFeature<?, ?> ORE_GOBBER_NETHER = Feature.ORE
 			.configure(new OreFeatureConfig(
-					OreFeatureConfig.Rules.BASE_STONE_NETHER,
+					OreFeatureConfig.Rules.NETHERRACK,
 					BlockInit.GOBBER2_ORE_NETHER.getDefaultState(),
 					CONFIG.netherGobberVeinSize)) // vein size
 			.uniformRange(YOffset.aboveBottom(0), YOffset.aboveBottom(CONFIG.netherGobberMaxLevel))
