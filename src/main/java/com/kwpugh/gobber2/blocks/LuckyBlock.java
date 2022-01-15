@@ -22,8 +22,9 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 
-public class LuckyBlock  extends OreBlock
+public class LuckyBlock extends OreBlock
 {
 	public LuckyBlock(FabricBlockSettings settings) 
 	{
@@ -39,6 +40,9 @@ public class LuckyBlock  extends OreBlock
 	@Override
 	public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
 	{
+		super.spawnBreakParticles(world, player, pos, state);
+		world.emitGameEvent(player, GameEvent.BLOCK_DESTROY, pos);
+		
 		if(world.isClient) return;
 		
 		int tries = 1;  // Default value if Fortune not enabled

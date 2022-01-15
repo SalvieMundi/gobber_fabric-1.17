@@ -138,9 +138,9 @@ public class ItemInit
 	public static final Item GOBBER2_SWORD_END = new SwordEnd(GOBBER_END_TOOL_MATERIAL, 6, endAttackSpeed - 4.0F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_SWORD_SNIPER = new SwordEndSniper(GOBBER_END_TOOL_MATERIAL, 6, endAttackSpeed - 4.0F, (new Item.Settings()).fireproof().group(Gobber2.GOBBER2_GROUP));
 
-	public static final Item GOBBER2_BOW = new ModBow((new Item.Settings()).maxDamage(gobberBowDurability).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_BOW_NETHER = new ModBow((new Item.Settings()).maxDamage(netherBowDurability).group(Gobber2.GOBBER2_GROUP));
-	public static final Item GOBBER2_BOW_END = new BowEnd((new Item.Settings()).maxDamage(endBowDurability).fireproof().group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_BOW = new ModBow((new BowItem.Settings()).maxDamage(gobberBowDurability).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_BOW_NETHER = new ModBow((new BowItem.Settings()).maxDamage(netherBowDurability).group(Gobber2.GOBBER2_GROUP));
+	public static final Item GOBBER2_BOW_END = new BowEnd((new BowItem.Settings()).maxDamage(endBowDurability).fireproof().group(Gobber2.GOBBER2_GROUP));
 	
 	public static final Item GOBBER2_PICKAXE = new ModPickaxe(GOBBER_TOOL_MATERIAL, -4, -2.4F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
 	public static final Item GOBBER2_PICKAXE_NETHER = new ModPickaxe(GOBBER_NETHER_TOOL_MATERIAL, -3, -2.3F, (new Item.Settings()).group(Gobber2.GOBBER2_GROUP));
